@@ -1,18 +1,8 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { FileText, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
-  const { scrollY } = useScroll();
-  
-  // Transform scroll position to gradient hue rotation
-  // As user scrolls down, the color shifts
-  const rotate = useTransform(scrollY, [0, 1000], [0, 360]);
-  const gradient = useTransform(
-    rotate, 
-    (r) => `linear-gradient(90deg, hsl(${r}, 80%, 60%), hsl(${(r + 60) % 360}, 80%, 60%))`
-  );
-
   return (
     <section id="home" className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden pt-20">
       {/* Background Gradient Blobs */}
@@ -35,16 +25,26 @@ export default function Hero() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-2">
-             {/* Animated Gradient Text */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-2 flex flex-col items-center">
+             {/* Animated Gradient Text - Automatic */}
             <motion.span 
-              style={{ backgroundImage: gradient }}
-              className="bg-clip-text text-transparent bg-[length:200%_auto] inline-block pb-2"
+              animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+              className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 bg-[length:200%_auto] pb-2 text-center"
             >
               Frontend Developer
             </motion.span>
-            <br />
-            <span className="text-white">& Creative Coder</span>
+            
+            <div className="flex flex-wrap justify-center gap-x-4">
+              <span className="text-white">&</span>
+              <motion.span 
+                animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+                className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 bg-[length:200%_auto] pb-2"
+              >
+                Creative Coder
+              </motion.span>
+            </div>
           </h1>
         </motion.div>
 
