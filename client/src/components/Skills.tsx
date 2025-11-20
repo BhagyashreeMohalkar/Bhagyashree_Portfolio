@@ -19,8 +19,19 @@ const skills = [
 export default function Skills() {
   return (
     <section id="skills" className="py-20 relative overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-orange-500/5 rounded-full blur-[120px] pointer-events-none" />
+      {/* Background Glow - Pulse Animation */}
+      <motion.div 
+        animate={{ 
+          opacity: [0.05, 0.1, 0.05],
+          scale: [1, 1.05, 1] 
+        }}
+        transition={{ 
+          duration: 5, 
+          repeat: Infinity,
+          ease: "easeInOut" 
+        }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-orange-500/5 rounded-full blur-[120px] pointer-events-none" 
+      />
 
       <div className="container mx-auto px-4 z-10 relative">
         <motion.div
@@ -44,7 +55,8 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
-              className="group relative bg-card border border-white/5 rounded-2xl p-6 flex flex-col items-center gap-4 hover:border-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              className="group relative bg-card border border-white/5 rounded-2xl p-6 flex flex-col items-center gap-4 hover:border-white/10 transition-all duration-300 hover:shadow-lg"
               style={{ 
                 "--glow-color": skill.color,
                 boxShadow: `0 0 0 0 transparent`
@@ -56,9 +68,19 @@ export default function Skills() {
                 style={{ background: skill.color, filter: 'blur(20px)' }}
               />
               
-              <div className="relative z-10 p-3 rounded-xl bg-white/5 group-hover:bg-white/10 transition-colors duration-300">
+              {/* Floating Icon Animation */}
+              <motion.div 
+                animate={{ y: [0, -5, 0] }}
+                transition={{ 
+                  duration: 2, 
+                  repeat: Infinity, 
+                  ease: "easeInOut",
+                  delay: Math.random() * 2 // Random delay so they don't sync up
+                }}
+                className="relative z-10 p-3 rounded-xl bg-white/5 group-hover:bg-white/10 transition-colors duration-300"
+              >
                 <skill.icon size={40} style={{ color: skill.color }} className="filter drop-shadow-lg" />
-              </div>
+              </motion.div>
               
               <span className="relative z-10 text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
                 {skill.name}
@@ -81,7 +103,8 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 + (i * 0.1) }}
-              className="bg-card border border-white/5 p-6 rounded-2xl text-center hover:bg-white/5 transition-colors"
+              whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.05)" }}
+              className="bg-card border border-white/5 p-6 rounded-2xl text-center transition-colors cursor-default"
             >
               <div className="text-2xl mb-2">{stat.icon}</div>
               <div className="text-xl font-bold text-orange-500 mb-1">{stat.value}</div>

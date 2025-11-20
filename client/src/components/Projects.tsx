@@ -59,33 +59,39 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group bg-card border border-white/5 rounded-2xl overflow-hidden hover:border-pink-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/5 flex flex-col"
+              whileHover={{ y: -10 }}
+              className="group bg-card border border-white/5 rounded-2xl overflow-hidden hover:border-pink-500/30 transition-all duration-300 hover:shadow-[0_10px_30px_-15px_rgba(236,72,153,0.3)] flex flex-col"
             >
               <div className="relative aspect-video overflow-hidden bg-black/50">
-                <img 
+                <motion.img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-90 group-hover:opacity-100"
+                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.5 }}
                 />
                 
                 {project.featured && (
-                  <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white border border-white/10">
+                  <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white border border-white/10 z-10">
                     Featured
                   </div>
                 )}
 
                 {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                  <Button size="icon" variant="secondary" className="rounded-full">
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 z-10">
+                  <Button size="icon" variant="secondary" className="rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                     <Github size={20} />
                   </Button>
-                  <Button size="icon" className="rounded-full bg-pink-600 hover:bg-pink-500">
+                  <Button size="icon" className="rounded-full bg-pink-600 hover:bg-pink-500 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
                     <ExternalLink size={20} />
                   </Button>
                 </div>
               </div>
 
-              <div className="p-6 flex flex-col flex-grow">
+              <div className="p-6 flex flex-col flex-grow relative">
+                {/* Subtle gradient shine effect */}
+                <div className="absolute inset-0 bg-gradient-to-b from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                
                 <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-pink-400 transition-colors">
                   {project.title}
                 </h3>
