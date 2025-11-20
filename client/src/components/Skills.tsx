@@ -44,24 +44,25 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
-              className="group relative bg-white/5 border border-white/5 rounded-2xl p-6 flex flex-col items-center gap-4 hover:border-white/20 transition-all duration-300 card-hover overflow-hidden"
-              style={{ "--glow-color": skill.color } as React.CSSProperties}
+              className="group relative bg-card border border-white/5 rounded-2xl p-6 flex flex-col items-center gap-4 hover:border-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              style={{ 
+                "--glow-color": skill.color,
+                boxShadow: `0 0 0 0 transparent`
+               } as React.CSSProperties}
             >
-              <div className="skill-card-glow" />
+              {/* Dynamic shadow on hover via JS/CSS var */}
+              <div 
+                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                style={{ background: skill.color, filter: 'blur(20px)' }}
+              />
               
-              <skill.icon size={48} className="text-gray-300 group-hover:text-white transition-colors z-10" />
+              <div className="relative z-10 p-3 rounded-xl bg-white/5 group-hover:bg-white/10 transition-colors duration-300">
+                <skill.icon size={40} style={{ color: skill.color }} className="filter drop-shadow-lg" />
+              </div>
               
-              <span className="text-sm font-medium text-gray-400 group-hover:text-white transition-colors z-10">
+              <span className="relative z-10 text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
                 {skill.name}
               </span>
-              
-              {/* Progress bar style decoration */}
-              <div className="w-full h-1 bg-white/10 rounded-full mt-2 overflow-hidden">
-                <div 
-                  className="h-full rounded-full transition-all duration-500 w-0 group-hover:w-full"
-                  style={{ backgroundColor: skill.color }}
-                />
-              </div>
             </motion.div>
           ))}
         </div>
@@ -80,7 +81,7 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 + (i * 0.1) }}
-              className="bg-card/50 border border-white/5 p-6 rounded-2xl text-center hover:bg-white/5 transition-colors"
+              className="bg-card border border-white/5 p-6 rounded-2xl text-center hover:bg-white/5 transition-colors"
             >
               <div className="text-2xl mb-2">{stat.icon}</div>
               <div className="text-xl font-bold text-orange-500 mb-1">{stat.value}</div>

@@ -1,8 +1,18 @@
-import { motion } from "framer-motion";
-import { ArrowRight, FileText, Github, Linkedin, Mail } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { FileText, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
+  const { scrollY } = useScroll();
+  
+  // Transform scroll position to gradient hue rotation
+  // As user scrolls down, the color shifts
+  const rotate = useTransform(scrollY, [0, 1000], [0, 360]);
+  const gradient = useTransform(
+    rotate, 
+    (r) => `linear-gradient(90deg, hsl(${r}, 80%, 60%), hsl(${(r + 60) % 360}, 80%, 60%))`
+  );
+
   return (
     <section id="home" className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden pt-20">
       {/* Background Gradient Blobs */}
@@ -20,18 +30,23 @@ export default function Hero() {
           <span className="text-sm font-medium text-gray-300">Welcome to my universe</span>
         </motion.div>
 
-        <motion.h1
+        <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight"
         >
-          <span className="bg-clip-text text-transparent bg-gradient-to-b from-purple-400 to-purple-600">
-            Frontend Developer
-          </span>
-          <br />
-          <span className="text-white">& Creative Coder</span>
-        </motion.h1>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-2">
+             {/* Animated Gradient Text */}
+            <motion.span 
+              style={{ backgroundImage: gradient }}
+              className="bg-clip-text text-transparent bg-[length:200%_auto] inline-block pb-2"
+            >
+              Frontend Developer
+            </motion.span>
+            <br />
+            <span className="text-white">& Creative Coder</span>
+          </h1>
+        </motion.div>
 
         <motion.p
           initial={{ y: 20, opacity: 0 }}
