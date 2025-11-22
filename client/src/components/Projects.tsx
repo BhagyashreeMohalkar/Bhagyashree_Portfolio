@@ -166,14 +166,15 @@ export default function Projects() {
           transition={{ delay: 0.4 }}
           className="mt-16 flex justify-center"
         >
-          <Button 
-            size="lg" 
-            className="rounded-full bg-white/5 border-white/10 hover:bg-white/10 text-white px-8 h-14 text-lg hover:border-pink-500/50 transition-all duration-300 gap-2 group"
+          <motion.button
+            whileHover={{ y: -3 }}
+            className="btn-secondary h-14 text-lg flex items-center justify-center gap-2"
             onClick={() => window.open('https://github.com/BhagyashreeMohalkar?tab=repositories', '_blank')}
+            data-testid="button-explore-projects-other"
           >
             Explore other projects
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
+            <ArrowRight className="w-5 h-5" />
+          </motion.button>
         </motion.div>
       </div>
     </section>

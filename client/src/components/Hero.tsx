@@ -41,7 +41,7 @@ export default function Hero() {
       {/* Animated Waves Background - Futuristic */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <svg
-          className="absolute inset-0 w-full h-full opacity-20"
+          className="absolute inset-0 w-full h-full"
           viewBox="0 0 1200 600"
           preserveAspectRatio="none"
         >
@@ -57,7 +57,8 @@ export default function Hero() {
             d="M0,300 Q300,250 600,300 T1200,300 L1200,600 L0,600 Z"
             fill="url(#waveGradient)"
             animate={{ d: ["M0,300 Q300,250 600,300 T1200,300 L1200,600 L0,600 Z", "M0,320 Q300,270 600,320 T1200,320 L1200,600 L0,600 Z", "M0,300 Q300,250 600,300 T1200,300 L1200,600 L0,600 Z"] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 8, repeat: Infinity }}
+            opacity={0.08}
           />
 
           {/* Wave 2 - Medium */}
@@ -65,7 +66,8 @@ export default function Hero() {
             d="M0,350 Q300,300 600,350 T1200,350 L1200,600 L0,600 Z"
             fill="url(#waveGradient)"
             animate={{ d: ["M0,350 Q300,300 600,350 T1200,350 L1200,600 L0,600 Z", "M0,330 Q300,280 600,330 T1200,330 L1200,600 L0,600 Z", "M0,350 Q300,300 600,350 T1200,350 L1200,600 L0,600 Z"] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            transition={{ duration: 10, repeat: Infinity, delay: 1 }}
+            opacity={0.06}
           />
 
           {/* Wave 3 - Fast */}
@@ -73,7 +75,8 @@ export default function Hero() {
             d="M0,250 Q300,200 600,250 T1200,250 L1200,600 L0,600 Z"
             fill="url(#waveGradient)"
             animate={{ d: ["M0,250 Q300,200 600,250 T1200,250 L1200,600 L0,600 Z", "M0,270 Q300,220 600,270 T1200,270 L1200,600 L0,600 Z", "M0,250 Q300,200 600,250 T1200,250 L1200,600 L0,600 Z"] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            transition={{ duration: 6, repeat: Infinity, delay: 0.5 }}
+            opacity={0.07}
           />
         </svg>
       </div>
@@ -284,45 +287,30 @@ export default function Hero() {
           transition={{ delay: 0.5 }}
           className="flex flex-col sm:flex-row gap-4 mt-4"
         >
-          <motion.div
-            whileHover={{ y: -5, rotateX: 5 }}
-            style={{
-              transformStyle: "preserve-3d",
-            }}
+          <motion.button
+            whileHover={{ y: -5 }}
+            onClick={scrollToProjects}
+            className="btn-primary h-14 text-lg flex items-center justify-center gap-2"
+            data-testid="button-explore-projects"
           >
-            <Button
-              size="lg"
-              className="rounded-full bg-primary hover:bg-primary/90 text-white px-8 h-14 text-lg shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] transition-all duration-300 transform"
-              onClick={scrollToProjects}
-              data-testid="button-explore-projects"
-            >
-              🚀 Explore My Universe
-            </Button>
-          </motion.div>
+            🚀 Explore My Universe
+          </motion.button>
 
-          <motion.div
-            whileHover={{ y: -5, rotateX: 5 }}
-            style={{
-              transformStyle: "preserve-3d",
-            }}
+          <motion.button
+            whileHover={{ y: -5 }}
+            onClick={() =>
+              window.open(
+                "https://drive.google.com/uc?export=download&id=1natTmSV7BQY2Jl6qI1qoPZU12qWuh89g",
+                "_blank",
+                "noopener,noreferrer"
+              )
+            }
+            className="btn-secondary h-14 text-lg flex items-center justify-center gap-2"
+            data-testid="button-download-cv"
           >
-            <Button
-              variant="outline"
-              size="lg"
-              className="rounded-full bg-white/5 border-white/10 hover:bg-white/10 text-white px-8 h-14 text-lg hover:border-white/30 transition-all duration-300"
-              onClick={() =>
-                window.open(
-                  "https://drive.google.com/uc?export=download&id=1natTmSV7BQY2Jl6qI1qoPZU12qWuh89g",
-                  "_blank",
-                  "noopener,noreferrer"
-                )
-              }
-              data-testid="button-download-cv"
-            >
-              <FileText className="mr-2 h-5 w-5" />
-              Download CV
-            </Button>
-          </motion.div>
+            <FileText className="h-5 w-5" />
+            Download CV
+          </motion.button>
         </motion.div>
 
         {/* Social Icons with 3D effect */}

@@ -103,3 +103,46 @@
 .card-hover:hover .skill-card-glow {
   opacity: 0.15;
 }
+
+/* Enhanced Button Styles */
+.btn-primary {
+  @apply relative px-8 py-3 font-semibold rounded-full text-white transition-all duration-300;
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.6), 0 10px 25px rgba(168, 85, 247, 0.3);
+  transform: translateY(-3px);
+}
+
+.btn-primary:active {
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  @apply relative px-8 py-3 font-semibold rounded-full text-white transition-all duration-300;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+.btn-secondary:active {
+  transform: translateY(-1px);
+}
+
+.btn-gradient {
+  @apply relative px-6 py-2 font-semibold rounded-lg text-gray-900 transition-all duration-300;
+}
+
+.btn-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px currentColor opacity-50;
+}

@@ -151,9 +151,14 @@ export default function Contact() {
                   )}
                 />
 
-                <Button type="submit" className="w-full h-12 text-lg bg-primary hover:bg-primary/90">
-                  <Send className="mr-2 h-4 w-4" /> Send Message
-                </Button>
+                <motion.button
+                  type="submit"
+                  whileHover={{ y: -3 }}
+                  className="btn-primary w-full h-12 text-lg flex items-center justify-center gap-2"
+                  data-testid="button-send-message"
+                >
+                  <Send className="w-4 h-4" /> Send Message
+                </motion.button>
               </form>
             </Form>
           </motion.div>
