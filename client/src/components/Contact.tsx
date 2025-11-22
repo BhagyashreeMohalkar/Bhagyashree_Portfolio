@@ -75,7 +75,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-sm text-gray-500">Email</div>
-                  <div className="text-white font-medium">hello@example.com</div>
+                  <div className="text-white font-medium">mohalkarbhagyashri961@gmail.com</div>
                 </div>
               </div>
 
@@ -85,7 +85,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-sm text-gray-500">Phone</div>
-                  <div className="text-white font-medium">+1 (555) 123-4567</div>
+                  <div className="text-white font-medium">+91 7620216120</div>
                 </div>
               </div>
 
@@ -95,7 +95,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-sm text-gray-500">Location</div>
-                  <div className="text-white font-medium">San Francisco, CA</div>
+                  <div className="text-white font-medium">Shrirampur, Maharashtra, India</div>
                 </div>
               </div>
             </div>
@@ -162,7 +162,7 @@ export default function Contact() {
       
       {/* Footer inside Contact section or separate? Usually footer is last. I'll add a mini footer here */}
       <div className="mt-20 border-t border-white/5 pt-8 text-center text-gray-500 text-sm">
-        <p>© 2025 Ahmed Allali Clone. Built with React & Tailwind.</p>
+        <p>© 2025 Bhagyashree Mohalkar. Built with ❤️ and AI.</p>
       </div>
     </section>
   );

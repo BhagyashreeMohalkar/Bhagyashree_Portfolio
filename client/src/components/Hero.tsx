@@ -1,57 +1,94 @@
+import React from "react";
 import { motion } from "framer-motion";
 import { FileText, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
+  // Robust scroll helper: tries direct scroll, falls back to hash + retry
+  const scrollToProjects = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    const el = document.getElementById("projects");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      try {
+        history.replaceState(null, "", "#projects");
+      } catch {}
+      setTimeout(
+        () =>
+          document
+            .getElementById("projects")
+            ?.scrollIntoView({ behavior: "smooth", block: "start" }),
+        300
+      );
+    }
+  };
+
   return (
-    <section id="home" className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden pt-20">
-      {/* Animated Background Gradient Blobs - "Living" effect */}
-      <motion.div 
-        animate={{ 
+    <section
+      id="home"
+      className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden pt-20"
+    >
+      {/* TOP-LEFT: Name only */}
+      <div className="absolute top-6 left-6 z-50">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold shadow-md">
+            B
+          </div>
+          <div className="text-sm text-gray-200 font-semibold">
+            Bhagyashree Mohalkar
+          </div>
+        </div>
+      </div>
+
+      {/* Animated Background Gradient Blobs - preserved */}
+      <motion.div
+        animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3],
           x: [0, 50, 0],
-          y: [0, 30, 0]
+          y: [0, 30, 0],
         }}
-        transition={{ 
-          duration: 10, 
-          repeat: Infinity, 
-          ease: "easeInOut" 
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
         }}
-        className="absolute top-20 left-20 w-96 h-96 bg-primary/30 rounded-full blur-[128px] pointer-events-none" 
+        className="absolute top-20 left-20 w-96 h-96 bg-primary/30 rounded-full blur-[128px] pointer-events-none"
       />
-      <motion.div 
-        animate={{ 
+      <motion.div
+        animate={{
           scale: [1, 1.3, 1],
           opacity: [0.3, 0.5, 0.3],
           x: [0, -50, 0],
-          y: [0, -40, 0]
+          y: [0, -40, 0],
         }}
-        transition={{ 
-          duration: 12, 
-          repeat: Infinity, 
+        transition={{
+          duration: 12,
+          repeat: Infinity,
           ease: "easeInOut",
-          delay: 1
+          delay: 1,
         }}
-        className="absolute bottom-20 right-20 w-96 h-96 bg-secondary/30 rounded-full blur-[128px] pointer-events-none" 
+        className="absolute bottom-20 right-20 w-96 h-96 bg-secondary/30 rounded-full blur-[128px] pointer-events-none"
       />
-      
-      {/* Third blob for more complexity */}
-      <motion.div 
-        animate={{ 
+
+      {/* Third blob */}
+      <motion.div
+        animate={{
           scale: [1, 1.1, 1],
           opacity: [0.2, 0.4, 0.2],
         }}
-        transition={{ 
-          duration: 8, 
-          repeat: Infinity, 
+        transition={{
+          duration: 8,
+          repeat: Infinity,
           ease: "easeInOut",
-          delay: 2
+          delay: 2,
         }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-900/20 rounded-full blur-[100px] pointer-events-none" 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-900/20 rounded-full blur-[100px] pointer-events-none"
       />
 
       <div className="container mx-auto px-4 z-10 flex flex-col items-center text-center gap-8">
+        {/* Center badge */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -59,90 +96,151 @@ export default function Hero() {
           whileHover={{ scale: 1.05 }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm cursor-default"
         >
-          <motion.span 
+          <motion.span
             animate={{ rotate: [0, 15, -15, 0] }}
             transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
             className="text-xl"
           >
             🌟
           </motion.span>
-          <span className="text-sm font-medium text-gray-300">Welcome to my universe</span>
+          <span className="text-sm font-medium text-gray-300">
+            Welcome to my universe
+          </span>
         </motion.div>
 
+        {/* Title - AI/ML Developer & Researcher */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-2 flex flex-col items-center">
-             {/* Animated Gradient Text - Automatic */}
-            <motion.span 
-              animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+            {/* Animated Gradient Text - preserved */}
+            <motion.span
+              animate={{
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "linear",
+              }}
               className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 bg-[length:200%_auto] pb-2 text-center"
             >
-              Frontend Developer
+              AI/ML Developer
             </motion.span>
-            
+
             <div className="flex flex-wrap justify-center gap-x-4">
               <span className="text-white">&</span>
-              <motion.span 
-                animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+              <motion.span
+                animate={{
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
                 className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 bg-[length:200%_auto] pb-2"
               >
-                Creative Coder
+                Researcher
               </motion.span>
             </div>
           </h1>
         </motion.div>
 
-        <motion.p
+        {/* QUOTE — bold with gradient + glow underline */}
+        <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="max-w-2xl text-lg md:text-xl text-gray-400 leading-relaxed"
+          className="max-w-2xl text-lg md:text-xl leading-relaxed font-semibold text-center relative"
         >
-          I craft <span className="text-primary font-semibold">beautiful</span>, <span className="text-secondary font-semibold">interactive</span> web experiences with modern technologies.
-          Passionate about clean code, stunning designs, and seamless user experiences.
-        </motion.p>
+          <span
+            className="bg-clip-text text-transparent
+               bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500
+               drop-shadow-[0_0_12px_rgba(200,100,255,0.28)]
+               italic font-bold"
+          >
+            "Somewhere, something incredible is waiting to be known."
+          </span>
 
+          <span className="not-italic text-primary block mt-2">— Carl Sagan</span>
+
+          {/* Gradient glow underline */}
+          <div
+            className="mx-auto mt-3 w-40 h-1 rounded-full
+                  bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500
+                  shadow-[0_0_18px_rgba(200,100,255,0.45)]"
+          />
+        </motion.div>
+
+        {/* CTA Buttons */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5 }}
           className="flex flex-col sm:flex-row gap-4 mt-4"
         >
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             className="rounded-full bg-primary hover:bg-primary/90 text-white px-8 h-14 text-lg shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] transition-all duration-300 transform hover:-translate-y-1"
-            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={scrollToProjects}
           >
             🚀 Explore My Universe
           </Button>
-          <Button 
-            variant="outline" 
-            size="lg" 
+
+          <Button
+            variant="outline"
+            size="lg"
             className="rounded-full bg-white/5 border-white/10 hover:bg-white/10 text-white px-8 h-14 text-lg hover:border-white/30 transition-all duration-300"
+            onClick={() =>
+              window.open(
+                "https://drive.google.com/uc?export=download&id=1natTmSV7BQY2Jl6qI1qoPZU12qWuh89g",
+                "_blank",
+                "noopener,noreferrer"
+              )
+            }
           >
             <FileText className="mr-2 h-5 w-5" />
             Download CV
           </Button>
         </motion.div>
 
+        {/* Social Icons */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.6 }}
           className="flex gap-6 mt-12 text-gray-400"
         >
-          <a href="#" className="hover:text-white transition-colors hover:scale-110 transform duration-200"><Github size={24} /></a>
-          <a href="#" className="hover:text-white transition-colors hover:scale-110 transform duration-200"><Linkedin size={24} /></a>
-          <a href="mailto:hello@example.com" className="hover:text-white transition-colors hover:scale-110 transform duration-200"><Mail size={24} /></a>
+          <a
+            href="https://github.com/BhagyashreeMohalkar"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors hover:scale-110 transform duration-200"
+          >
+            <Github size={24} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/bhagyashree-mohalkar/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors hover:scale-110 transform duration-200"
+          >
+            <Linkedin size={24} />
+          </a>
+          <a
+            href="mailto:mohalkarbhagyashri961@gmail.com"
+            className="hover:text-white transition-colors hover:scale-110 transform duration-200"
+          >
+            <Mail size={24} />
+          </a>
         </motion.div>
       </div>
 
-      <motion.div 
+      {/* Bottom scroll hint */}
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
