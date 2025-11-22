@@ -1,35 +1,68 @@
 import { motion } from "framer-motion";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // Import generated images
-import imgPong from "@assets/generated_images/abstract_space_game_interface.png";
-import imgTodo from "@assets/generated_images/modern_dark_mode_dashboard.png";
-import imgDocker from "@assets/generated_images/server_container_conceptual_art.png";
+import imgHeart from "@assets/generated_images/ai_heart_disease_detection_interface.png";
+import imgNexus from "@assets/generated_images/nexus_ai_network_concept.png";
+import imgMental from "@assets/generated_images/mental_health_analytics_dashboard.png";
+import imgCancer from "@assets/generated_images/cancer_detection_medical_imaging.png";
+import imgShoes from "@assets/generated_images/smart_iot_navigation_shoes.png";
+import imgIrrigation from "@assets/generated_images/smart_irrigation_iot_system.png";
 
 const projects = [
   {
     id: 1,
-    title: "Astro Pong",
-    description: "A multiplayer Pong game with a modern twist, built using Next.js, TailwindCSS, and Django.",
-    tags: ["Next.js", "Django", "TailwindCSS"],
-    image: imgPong,
+    title: "Hridayam",
+    subtitle: "AI-powered Heart Disease Detection",
+    description: "An advanced medical AI system that predicts heart disease risk using machine learning algorithms. Features a user-friendly interface for instant analysis and health insights.",
+    tags: ["Machine Learning", "Python", "Healthcare AI", "Streamlit"],
+    image: imgHeart,
     featured: true
   },
   {
     id: 2,
-    title: "Todo App",
-    description: "A modern, responsive Todo application built with Next.js, React, Redux, and TypeScript. Features CRUD operations, sorting, dark/light theme.",
-    tags: ["Next.js", "React", "Redux", "TypeScript", "Jest"],
-    image: imgTodo,
+    title: "Nexus.AI",
+    subtitle: "Next-Gen Artificial Intelligence",
+    description: "A comprehensive AI platform designed to bridge the gap between complex neural networks and practical applications. Focuses on scalability and real-time processing.",
+    tags: ["Artificial Intelligence", "Neural Networks", "Deep Learning", "Python"],
+    image: imgNexus,
     featured: true
   },
   {
     id: 3,
-    title: "Inception",
-    description: "A Docker-based project to set up a WordPress website with Docker Compose, NGINX, and MariaDB.",
-    tags: ["Docker", "WordPress", "NGINX", "MariaDB"],
-    image: imgDocker,
+    title: "Mental Fitness Tracker",
+    subtitle: "using Machine Learning",
+    description: "Analyzes global mental health data to predict fitness trends. Uses Linear Regression and Random Forest models to provide actionable insights for mental well-being.",
+    tags: ["Machine Learning", "Data Analytics", "Random Forest", "Pandas"],
+    image: imgMental,
+    featured: true
+  },
+  {
+    id: 4,
+    title: "Cancerous Tissue Detection",
+    subtitle: "with Logistic Regression",
+    description: "A high-precision diagnostic tool utilizing Logistic Regression to identify cancerous tissues from medical imaging data, aiding in early and accurate diagnosis.",
+    tags: ["Logistic Regression", "Medical Imaging", "Python", "Scikit-learn"],
+    image: imgCancer,
+    featured: false
+  },
+  {
+    id: 5,
+    title: "Smart Navigation Shoes",
+    subtitle: "IoT Wearable Tech",
+    description: "Innovative footwear embedded with sensors and IoT connectivity to provide haptic navigation feedback, designed to assist visually impaired users.",
+    tags: ["IoT", "Arduino", "Sensors", "Wearable Tech"],
+    image: imgShoes,
+    featured: false
+  },
+  {
+    id: 6,
+    title: "Smart Irrigation System",
+    subtitle: "Soil Moisture Sensing",
+    description: "Automated agricultural solution that monitors soil moisture levels in real-time and optimizes water usage through intelligent irrigation control.",
+    tags: ["IoT", "Automation", "Smart Agriculture", "C++"],
+    image: imgIrrigation,
     featured: false
   }
 ];
@@ -92,10 +125,16 @@ export default function Projects() {
                 {/* Subtle gradient shine effect */}
                 <div className="absolute inset-0 bg-gradient-to-b from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 
-                <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-pink-400 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-gray-400 mb-6 flex-grow">
+                <div className="mb-2">
+                  <h3 className="text-2xl font-bold text-white group-hover:text-pink-400 transition-colors leading-tight">
+                    {project.title}
+                  </h3>
+                  {project.subtitle && (
+                    <p className="text-sm text-pink-500/80 font-medium mt-1">{project.subtitle}</p>
+                  )}
+                </div>
+                
+                <p className="text-gray-400 mb-6 flex-grow text-sm leading-relaxed">
                   {project.description}
                 </p>
                 
@@ -110,14 +149,32 @@ export default function Projects() {
                   ))}
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/5 flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors cursor-pointer">
+                <div className="mt-6 pt-4 border-t border-white/5 flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors cursor-pointer group/link">
                   <Github size={16} />
-                  <span>View Code</span>
+                  <span className="group-hover/link:underline">View Code</span>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
+        
+        {/* Explore Other Projects Button */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="mt-16 flex justify-center"
+        >
+          <Button 
+            size="lg" 
+            className="rounded-full bg-white/5 border-white/10 hover:bg-white/10 text-white px-8 h-14 text-lg hover:border-pink-500/50 transition-all duration-300 gap-2 group"
+            onClick={() => window.open('https://github.com/BhagyashreeMohalkar?tab=repositories', '_blank')}
+          >
+            Explore other projects
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
