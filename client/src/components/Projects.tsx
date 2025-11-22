@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 import { Github, ExternalLink, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-// Import generated images
-import imgHeart from "@assets/generated_images/ai_heart_disease_detection_interface.png";
-import imgNexus from "@assets/generated_images/nexus_ai_network_concept.png";
-import imgMental from "@assets/generated_images/mental_health_analytics_dashboard.png";
-import imgCancer from "@assets/generated_images/cancer_detection_medical_imaging.png";
-import imgShoes from "@assets/generated_images/smart_iot_navigation_shoes.png";
-import imgIrrigation from "@assets/generated_images/smart_irrigation_iot_system.png";
+// Import images
+import imgHeart from "@assets/images/ai_heart_disease_detection_interface.png";
+import imgNexus from "@assets/images/nexus_ai_network_concept.png";
+import imgMental from "@assets/images/mental_health_analytics_dashboard.png";
+import imgCancer from "@assets/images/cancer_detection_medical_imaging.png";
+import imgShoes from "@assets/images/smart_iot_navigation_shoes.png";
+import imgIrrigation from "@assets/images/smart_irrigation_iot_system.png";
 
 const projects = [
   {
