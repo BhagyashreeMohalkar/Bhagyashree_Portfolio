@@ -146,3 +146,113 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 20px currentColor opacity-50;
 }
+
+/* Responsive Design Enhancements */
+@media (max-width: 768px) {
+  /* Hero Section */
+  h1 {
+    font-size: 2rem !important;
+  }
+  
+  h2 {
+    font-size: 1.875rem !important;
+  }
+  
+  .container {
+    @apply px-4;
+  }
+
+  /* Buttons */
+  .btn-primary,
+  .btn-secondary {
+    @apply px-6 py-2.5 text-base;
+    height: auto;
+  }
+
+  /* Grid adjustments */
+  .grid {
+    @apply gap-4;
+  }
+
+  /* Section padding */
+  section {
+    @apply py-12;
+  }
+
+  /* Text sizes */
+  .text-lg {
+    @apply text-base;
+  }
+
+  .text-xl {
+    @apply text-lg;
+  }
+
+  /* Cards and containers */
+  .rounded-lg,
+  .rounded-2xl {
+    @apply rounded-lg;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Extra small screens */
+  h1 {
+    font-size: 1.5rem !important;
+  }
+
+  h2 {
+    font-size: 1.5rem !important;
+  }
+
+  /* Hero spacing */
+  .min-h-screen {
+    @apply min-h-auto;
+  }
+
+  /* Buttons full width on mobile */
+  .btn-primary,
+  .btn-secondary {
+    @apply w-full px-4 py-2;
+  }
+
+  /* Flex column on mobile */
+  .flex-col {
+    @apply flex-col;
+  }
+
+  /* Grid single column */
+  .grid {
+    @apply grid-cols-1;
+  }
+
+  /* Reduce gaps */
+  .gap-6 {
+    @apply gap-3;
+  }
+
+  .gap-8 {
+    @apply gap-4;
+  }
+
+  /* Navbar adjustments */
+  .fixed {
+    @apply relative;
+  }
+
+  /* Profile image size */
+  .w-96,
+  .h-96 {
+    @apply w-72 h-72;
+  }
+
+  /* Section padding */
+  section {
+    @apply py-8;
+  }
+
+  /* Text alignment */
+  .text-center {
+    @apply text-left md:text-center;
+  }
+}
