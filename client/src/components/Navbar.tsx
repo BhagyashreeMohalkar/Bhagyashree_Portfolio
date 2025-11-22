@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Home, User, Briefcase, Code, FolderGit2, Mail } from "lucide-react";
+import { Home, User, Briefcase, Code, FolderGit2, Award, Trophy, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -9,6 +9,8 @@ const navItems = [
   { name: "Experience", href: "#experience", icon: Briefcase },
   { name: "Skills", href: "#skills", icon: Code },
   { name: "Projects", href: "#projects", icon: FolderGit2 },
+  { name: "Patent", href: "#patent", icon: Award },
+  { name: "Certifications", href: "#certifications", icon: Trophy },
   { name: "Contact", href: "#contact", icon: Mail },
 ];
 
