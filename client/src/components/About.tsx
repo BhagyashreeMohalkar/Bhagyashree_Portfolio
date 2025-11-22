@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import profileImg from "@assets/generated_images/Shreya.jpeg";
+import profileImg from "@assets/images/Shreya.jpeg";
 
 export default function About() {
   return (

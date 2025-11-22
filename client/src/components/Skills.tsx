@@ -1,118 +1,236 @@
-import { motion } from "framer-motion";
-import { SiNextdotjs, SiReact, SiTypescript, SiTailwindcss, SiJavascript, SiHtml5, SiCss3, SiGit, SiNodedotjs, SiDocker, SiC, SiCplusplus } from "react-icons/si";
+import React, { useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import {
+  SiHtml5,
+  SiCss3,
+  SiC,
+  SiCplusplus,
+  SiJavascript,
+  SiPython,
+  SiMysql,
+  SiNumpy,
+  SiPandas,
+  SiScikitlearn,
+  SiSpacy,
+  SiOpencv,
+  SiTensorflow,
+  SiGithub,
+  SiGit,
+  SiLatex
+} from "react-icons/si";
+import { FaJava } from "react-icons/fa";
 
-const skills = [
-  { name: "Next.js", icon: SiNextdotjs, color: "#ffffff" },
-  { name: "React", icon: SiReact, color: "#61DAFB" },
-  { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
-  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-  { name: "HTML", icon: SiHtml5, color: "#E34F26" },
-  { name: "CSS", icon: SiCss3, color: "#1572B6" },
-  { name: "Git", icon: SiGit, color: "#F05032" },
-  { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
-  { name: "Docker", icon: SiDocker, color: "#2496ED" },
-  { name: "C", icon: SiC, color: "#A8B9CC" },
-  { name: "C++", icon: SiCplusplus, color: "#00599C" },
+type Skill = {
+  name: string;
+  icon: any;
+  color: string;
+  category: "Languages" | "AI-ML" | "Tools";
+  note?: string;
+};
+
+const skills: Skill[] = [
+  { name: "HTML", icon: SiHtml5, color: "#FF5F2E", category: "Languages", note: "Semantic markup" },
+  { name: "CSS", icon: SiCss3, color: "#2EB1FF", category: "Languages", note: "Styling & responsive" },
+  { name: "C", icon: SiC, color: "#9FB4C8", category: "Languages", note: "Systems fundamentals" },
+  { name: "C++", icon: SiCplusplus, color: "#0EA5C9", category: "Languages", note: "Performance & algorithms" },
+  { name: "JavaScript", icon: SiJavascript, color: "#FFD54A", category: "Languages", note: "Frontend & scripting" },
+  { name: "Python", icon: SiPython, color: "#3BB3D6", category: "Languages", note: "ML & scripting" },
+  { name: "Java", icon: FaJava, color: "#1E88A8", category: "Languages", note: "OOP & systems" },
+  { name: "SQL", icon: SiMysql, color: "#21A3B0", category: "Languages", note: "Data queries" },
+
+  { name: "NumPy", icon: SiNumpy, color: "#0077B6", category: "AI-ML", note: "Numerical computing" },
+  { name: "Pandas", icon: SiPandas, color: "#16A34A", category: "AI-ML", note: "Data processing" },
+  { name: "Scikit-Learn", icon: SiScikitlearn, color: "#FF9F1C", category: "AI-ML", note: "Classical ML" },
+  { name: "spaCy", icon: SiSpacy, color: "#9B5DE5", category: "AI-ML", note: "NLP pipelines" },
+  { name: "OpenCV", icon: SiOpencv, color: "#3BA0C9", category: "AI-ML", note: "Computer vision" },
+  { name: "TensorFlow", icon: SiTensorflow, color: "#FF7A00", category: "AI-ML", note: "Deep learning" },
+
+  { name: "GitHub", icon: SiGithub, color: "#FFFFFF", category: "Tools", note: "Repo hosting & collaboration" },
+  { name: "Git", icon: SiGit, color: "#FF5F3A", category: "Tools", note: "Version control" },
+  { name: "LaTeX (Overleaf)", icon: SiLatex, color: "#00A89D", category: "Tools", note: "Scientific writing & docs (Overleaf)" }
 ];
 
+const categories = ["All", "Languages", "AI-ML", "Tools"] as const;
+
 export default function Skills() {
+  const [activeCategory, setActiveCategory] = useState<typeof categories[number]>("All");
+  const [openTooltip, setOpenTooltip] = useState<string | null>(null);
+  const prefersReducedMotion = useReducedMotion();
+
+  const visibleSkills = skills.filter((s) =>
+    activeCategory === "All" ? true : s.category === activeCategory
+  );
+
+  function handleKeyTooltip(e: React.KeyboardEvent, name: string) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      setOpenTooltip((prev) => (prev === name ? null : name));
+    } else if (e.key === "Escape") {
+      setOpenTooltip(null);
+    }
+  }
+
   return (
     <section id="skills" className="py-20 relative overflow-hidden">
-      {/* Background Glow - Pulse Animation */}
-      <motion.div 
-        animate={{ 
-          opacity: [0.05, 0.1, 0.05],
-          scale: [1, 1.05, 1] 
-        }}
-        transition={{ 
-          duration: 5, 
-          repeat: Infinity,
-          ease: "easeInOut" 
-        }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-orange-500/5 rounded-full blur-[120px] pointer-events-none" 
-      />
+      {/* Subtle background pulse */}
+      <motion.div
+        aria-hidden
+        animate={
+          prefersReducedMotion
+            ? undefined
+            : { opacity: [0.04, 0.09, 0.04], scale: [1, 1.03, 1] }
+        }
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute inset-0 -z-10 flex justify-center"
+        style={{ pointerEvents: "none" }}
+      >
+        <div className="w-[900px] h-[900px] bg-gradient-to-br from-purple-900/5 via-pink-600/3 to-emerald-600/3 rounded-full blur-[120px]" />
+      </motion.div>
 
-      <div className="container mx-auto px-4 z-10 relative">
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-orange-500">
-            Skills & Technologies
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-orange-500 mb-2">Skills & Technologies</h2>
           <div className="w-20 h-1 bg-orange-500 mx-auto rounded-full" />
-          <p className="text-gray-400 mt-4">The magical tools I use to bring ideas to life</p>
+          <p className="text-gray-400 mt-3">The magical tools I use to bring ideas to life</p>
         </motion.div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="group relative bg-card border border-white/5 rounded-2xl p-6 flex flex-col items-center gap-4 hover:border-white/10 transition-all duration-300 hover:shadow-lg"
-              style={{ 
-                "--glow-color": skill.color,
-                boxShadow: `0 0 0 0 transparent`
-               } as React.CSSProperties}
+        {/* Category Tabs */}
+        <div className="flex justify-center gap-3 mb-8">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => {
+                setActiveCategory(cat);
+                setOpenTooltip(null);
+              }}
+              className={`px-4 py-2 rounded-full text-sm transition-colors duration-200 font-medium ${
+                activeCategory === cat
+                  ? "bg-primary text-white shadow-[0_8px_30px_rgba(139,92,246,0.18)]"
+                  : "bg-white/5 text-gray-300 hover:bg-white/8"
+              }`}
+              aria-pressed={activeCategory === cat}
             >
-              {/* Dynamic shadow on hover via JS/CSS var */}
-              <div 
-                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"
-                style={{ background: skill.color, filter: 'blur(20px)' }}
-              />
-              
-              {/* Floating Icon Animation */}
-              <motion.div 
-                animate={{ y: [0, -5, 0] }}
-                transition={{ 
-                  duration: 2, 
-                  repeat: Infinity, 
-                  ease: "easeInOut",
-                  delay: Math.random() * 2 // Random delay so they don't sync up
-                }}
-                className="relative z-10 p-3 rounded-xl bg-white/5 group-hover:bg-white/10 transition-colors duration-300"
-              >
-                <skill.icon size={40} style={{ color: skill.color }} className="filter drop-shadow-lg" />
-              </motion.div>
-              
-              <span className="relative z-10 text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                {skill.name}
-              </span>
-            </motion.div>
+              {cat}
+            </button>
           ))}
         </div>
 
-        {/* Stats Cards Bottom */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+        {/* Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          {visibleSkills.map((skill, index) => {
+            const Icon = skill.icon;
+            const isTooltipOpen = openTooltip === skill.name;
+
+            return (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.045 }}
+                whileHover={{ y: -6 }}
+                className="relative"
+              >
+                <div
+                  role="button"
+                  tabIndex={0}
+                  aria-label={skill.name}
+                  onClick={() => setOpenTooltip((p) => (p === skill.name ? null : skill.name))}
+                  onKeyDown={(e) => handleKeyTooltip(e, skill.name)}
+                  onMouseEnter={() => setOpenTooltip(skill.name)}
+                  onMouseLeave={() => setOpenTooltip((p) => (p === skill.name ? null : p))}
+                  className="group bg-card border border-white/6 rounded-2xl p-6 flex flex-col items-center gap-4 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all duration-250 hover:border-white/10"
+                >
+                  {/* halo behind tile */}
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 -z-10 rounded-2xl opacity-0 group-hover:opacity-95 transition-opacity duration-300"
+                    style={{
+                      background: `radial-gradient(circle, ${skill.color}44, transparent 35%)`,
+                      filter: "blur(36px)",
+                    }}
+                  />
+
+                  {/* icon container with stronger glow */}
+                  <div
+                    className="relative z-10 p-3 rounded-xl transition-transform duration-300 group-hover:scale-105"
+                    style={{
+                      background: "rgba(255,255,255,0.02)",
+                      boxShadow: `0 8px 40px ${hexToRgba(skill.color, 0.14)}, 0 0 18px ${hexToRgba(skill.color, 0.12)}`,
+                    }}
+                  >
+                    <Icon
+                      size={46}
+                      style={{
+                        color: skill.color,
+                        filter: `drop-shadow(0 10px 22px ${hexToRgba(skill.color, 0.18)})`,
+                      }}
+                    />
+                  </div>
+
+                  <div className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">
+                    {skill.name}
+                  </div>
+                </div>
+
+                {/* tooltip */}
+                <div
+                  className={`pointer-events-none absolute left-1/2 transform -translate-x-1/2 mt-3 z-50 w-60 transition-all duration-200 ${
+                    isTooltipOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+                  }`}
+                >
+                  <div className="bg-card border border-white/10 p-3 rounded-lg text-sm shadow-lg">
+                    <div className="text-white font-semibold">{skill.name}</div>
+                    <div className="text-xs text-gray-400">{skill.category}</div>
+                    {skill.note && <p className="text-xs text-gray-300 mt-2">{skill.note}</p>}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-14">
           {[
-            { label: "Technologies", value: "12+", icon: "🛠️" },
-            { label: "Projects", value: "15+", icon: "🚀" },
-            { label: "Experience", value: "2+", icon: "⚡" },
-            { label: "Coffee Cups", value: "∞", icon: "☕" },
+            { label: "Technologies", value: `${skills.length}+`, icon: "🛠️" },
+            { label: "Projects", value: "10+", icon: "🚀" },
+            { label: "Certifications", value: "5+", icon: "⚡" },
+            { label: "Coffee Cups", value: "∞", icon: "☕" }
           ].map((stat, i) => (
-             <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.5 + (i * 0.1) }}
-              whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.05)" }}
-              className="bg-card border border-white/5 p-6 rounded-2xl text-center transition-colors cursor-default"
+              transition={{ delay: 0.12 + i * 0.06 }}
+              whileHover={{ scale: 1.03 }}
+              className="bg-card p-6 rounded-2xl border border-white/6 text-center"
             >
               <div className="text-2xl mb-2">{stat.icon}</div>
               <div className="text-xl font-bold text-orange-500 mb-1">{stat.value}</div>
-              <div className="text-xs text-gray-500">{stat.label}</div>
+              <div className="text-xs text-gray-400">{stat.label}</div>
             </motion.div>
           ))}
         </div>
       </div>
     </section>
   );
+}
+
+function hexToRgba(hex: string, alpha = 1) {
+  const h = hex.replace("#", "");
+  const full =
+    h.length === 3 ? h.split("").map((c) => c + c).join("") : h.slice(0, 6);
+  const bigint = parseInt(full, 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
