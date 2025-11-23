@@ -1,42 +1,50 @@
 import { motion } from "framer-motion";
-import { Trophy, Star, Zap } from "lucide-react";
+import { Trophy, Star, Zap, ArrowRight } from "lucide-react";
+import googleLogo from "@assets/images/google.png";
+import ciscoLogo from "@assets/images/cisco.png";
+import nptelLogo from "@assets/images/nptel.png";
+import talentbattleLogo from "@assets/images/talentbattle.png";
 
 export default function Certifications() {
   const certifications = [
     {
       id: 1,
-      title: "AI & Machine Learning Specialization",
-      issuer: "Coursera",
-      date: "2024",
+      title: "Cloud Engineer Certificate",
+      issuer: "Google Cloud",
+      date: "2025",
       link: "https://drive.google.com/",
-      icon: "🤖",
+      icon: "logo",
+      logoUrl: googleLogo,
       accentColor: "from-blue-500 via-blue-400 to-cyan-400"
     },
     {
       id: 2,
-      title: "Advanced Deep Learning",
-      issuer: "Udacity",
-      date: "2024",
-      link: "https://drive.google.com/",
-      icon: "🧠",
+      title: "Introduction to Data Science",
+      issuer: "Cisco Networking Academy",
+      date: "2025",
+      link: "https://drive.google.com/file/d/104jNpy3Zxtc9xkdHfW6HZn9uA45gPPEu/view?usp=sharing",
+      icon: "logo",
+      logoUrl: ciscoLogo,
       accentColor: "from-purple-500 via-purple-400 to-pink-400"
     },
     {
       id: 3,
-      title: "Data Science with Python",
-      issuer: "IBM",
-      date: "2023",
-      link: "https://drive.google.com/",
-      icon: "📊",
+      title: "Project Management",
+      issuer: "NPTEL",
+      date: "2025",
+      link: "https://drive.google.com/file/d/1yOSpX8IuTwqRSEMrm-B1KWASWknQIBYr/view?usp=sharing",
+      icon: "logo",
+      logoUrl: nptelLogo,
       accentColor: "from-orange-500 via-orange-400 to-red-400"
     },
     {
       id: 4,
-      title: "Cloud Computing Fundamentals",
-      issuer: "Google Cloud",
-      date: "2023",
-      link: "https://drive.google.com/",
-      icon: "☁️",
+      title: "Machine Learning",
+      issuer: "Talent Battle",
+      date: "2024",
+      link: "https://drive.google.com/file/d/1-6nkqmeawCzgFnYJ6a9xgKOKa-_1PfcO/view?usp=sharing",
+      icon: "logo",
+      logoUrl: talentbattleLogo,
       accentColor: "from-cyan-500 via-blue-400 to-indigo-500"
     }
   ];
@@ -63,6 +71,9 @@ export default function Certifications() {
       },
     },
   };
+
+  // Replace this with your Drive folder URL
+  const otherCertificationsDriveUrl = "https://drive.google.com/drive/folders/YOUR_FOLDER_ID";
 
   return (
     <section id="certifications" className="py-20 relative overflow-hidden">
@@ -106,7 +117,7 @@ export default function Certifications() {
           <div className="flex items-center justify-center gap-3 mb-4">
             <Trophy className="w-8 h-8 text-yellow-400" />
             <h2 className="text-4xl font-bold bg-gradient-to-r from-yellow-400 to-amber-300 bg-clip-text text-transparent">
-              Certifications & Achievements
+              Certifications
             </h2>
             <Star className="w-8 h-8 text-yellow-400" />
           </div>
@@ -147,7 +158,11 @@ export default function Certifications() {
                     className={`relative w-24 h-24 mb-6 rounded-full bg-gradient-to-br ${cert.accentColor} p-1 group-hover:shadow-xl group-hover:shadow-current/50 transition-all duration-300`}
                   >
                     <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center">
-                      <span className="text-4xl">{cert.icon}</span>
+                      {cert.icon === "logo" ? (
+                        <img src={cert.logoUrl} alt="Logo" className="w-16 h-16 object-contain" />
+                      ) : (
+                        <span className="text-4xl">{cert.icon}</span>
+                      )}
                     </div>
                     
                     {/* Rotating border */}
@@ -197,7 +212,7 @@ export default function Certifications() {
           ))}
         </motion.div>
 
-        {/* Info Card */}
+        {/* Explore Other Certifications Button (replaces Tip paragraph) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -205,9 +220,19 @@ export default function Certifications() {
           viewport={{ once: true }}
           className="bg-gradient-to-r from-gray-900/50 to-gray-900/30 border border-gray-700/50 rounded-xl p-6 text-center backdrop-blur-sm"
         >
-          <p className="text-gray-300 text-sm">
-            <span className="text-yellow-400 font-semibold">💡 Tip:</span> Click the buttons above to view your certificate links. Update them with your Google Drive or certificate URLs.
-          </p>
+          <button
+            onClick={() =>
+              window.open(
+                otherCertificationsDriveUrl,
+                "_blank",
+                "noopener,noreferrer"
+              )
+            }
+            className="px-6 py-3 rounded-xl text-white font-semibold text-lg bg-gradient-to-r from-pink-600 to-pink-400 hover:shadow-lg transition-all inline-flex items-center gap-2"
+          >
+            Explore other certifications
+            <ArrowRight className="w-5 h-5" />
+          </button>
         </motion.div>
       </div>
     </section>

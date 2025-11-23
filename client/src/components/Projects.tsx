@@ -15,62 +15,76 @@ const projects = [
     id: 1,
     title: "Hridayam",
     subtitle: "AI-powered Heart Disease Detection",
-    description: "An advanced medical AI system that predicts heart disease risk using machine learning algorithms. Features a user-friendly interface for instant analysis and health insights.",
+    description:
+      "An advanced medical AI system that predicts heart disease risk using machine learning algorithms. Features a user-friendly interface for instant analysis and health insights.",
     tags: ["Machine Learning", "Python", "Healthcare AI", "Streamlit"],
     image: imgHeart,
-    featured: true
+    featured: true,
+    github: "https://github.com/BhagyashreeMohalkar/Hridayam--AI-powered-Heart-disease-Detection",
   },
   {
     id: 2,
     title: "Nexus.AI",
     subtitle: "Next-Gen Artificial Intelligence",
-    description: "A comprehensive AI platform designed to bridge the gap between complex neural networks and practical applications. Focuses on scalability and real-time processing.",
+    description:
+      "A comprehensive AI platform designed to bridge the gap between complex neural networks and practical applications. Focuses on scalability and real-time processing.",
     tags: ["Artificial Intelligence", "Neural Networks", "Deep Learning", "Python"],
     image: imgNexus,
-    featured: true
+    featured: true,
+    github: "https://github.com/BhagyashreeMohalkar/Nexus.AI-",
   },
   {
     id: 3,
     title: "Mental Fitness Tracker",
     subtitle: "using Machine Learning",
-    description: "Analyzes global mental health data to predict fitness trends. Uses Linear Regression and Random Forest models to provide actionable insights for mental well-being.",
+    description:
+      "Analyzes global mental health data to predict fitness trends. Uses Linear Regression and Random Forest models to provide actionable insights for mental well-being.",
     tags: ["Machine Learning", "Data Analytics", "Random Forest", "Pandas"],
     image: imgMental,
-    featured: true
+    featured: true,
+    github: "https://github.com/BhagyashreeMohalkar/Mental_Fitness_Tracker-",
   },
   {
     id: 4,
     title: "Cancerous Tissue Detection",
     subtitle: "with Logistic Regression",
-    description: "A high-precision diagnostic tool utilizing Logistic Regression to identify cancerous tissues from medical imaging data, aiding in early and accurate diagnosis.",
+    description:
+      "A high-precision diagnostic tool utilizing Logistic Regression to identify cancerous tissues from medical imaging data, aiding in early and accurate diagnosis.",
     tags: ["Logistic Regression", "Medical Imaging", "Python", "Scikit-learn"],
     image: imgCancer,
-    featured: false
+    featured: false,
+    github: "https://github.com/BhagyashreeMohalkar/Cancerous-Tissue-Detection-with-Logistic-Regression",
   },
   {
     id: 5,
     title: "Smart Navigation Shoes",
     subtitle: "IoT Wearable Tech",
-    description: "Innovative footwear embedded with sensors and IoT connectivity to provide haptic navigation feedback, designed to assist visually impaired users.",
+    description:
+      "Innovative footwear embedded with sensors and IoT connectivity to provide haptic navigation feedback, designed to assist visually impaired users.",
     tags: ["IoT", "Arduino", "Sensors", "Wearable Tech"],
     image: imgShoes,
-    featured: false
+    featured: false,
+    github: "https://github.com/BhagyashreeMohalkar/Smart-Navigation-Shoes",
   },
   {
     id: 6,
     title: "Smart Irrigation System",
     subtitle: "Soil Moisture Sensing",
-    description: "Automated agricultural solution that monitors soil moisture levels in real-time and optimizes water usage through intelligent irrigation control.",
+    description:
+      "Automated agricultural solution that monitors soil moisture levels in real-time and optimizes water usage through intelligent irrigation control.",
     tags: ["IoT", "Automation", "Smart Agriculture", "C++"],
     image: imgIrrigation,
-    featured: false
-  }
+    featured: false,
+    github:
+      "https://github.com/BhagyashreeMohalkar/-Smart-Water-Irrigation-and-Soil-Moisture-Sensing-System",
+  },
 ];
 
 export default function Projects() {
   return (
     <section id="projects" className="py-20">
       <div className="container mx-auto px-4">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -81,9 +95,12 @@ export default function Projects() {
             Featured Projects
           </h2>
           <div className="w-20 h-1 bg-pink-500 mx-auto rounded-full" />
-          <p className="text-gray-400 mt-4">A showcase of my creative work and technical expertise</p>
+          <p className="text-gray-400 mt-4">
+            A showcase of my creative work and technical expertise
+          </p>
         </motion.div>
 
+        {/* Project Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
@@ -95,53 +112,69 @@ export default function Projects() {
               whileHover={{ y: -10 }}
               className="group bg-card border border-white/5 rounded-2xl overflow-hidden hover:border-pink-500/30 transition-all duration-300 hover:shadow-[0_10px_30px_-15px_rgba(236,72,153,0.3)] flex flex-col"
             >
+              {/* Image */}
               <div className="relative aspect-video overflow-hidden bg-black/50">
-                <motion.img 
-                  src={project.image} 
+                <motion.img
+                  src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover opacity-90 group-hover:opacity-100"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.5 }}
                 />
-                
+
+                {/* Featured Badge */}
                 {project.featured && (
                   <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white border border-white/10 z-10">
                     Featured
                   </div>
                 )}
 
-                {/* Overlay on hover */}
+                {/* Hover Overlay Buttons */}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 z-10">
-                  <Button size="icon" variant="secondary" className="rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  
+                  {/* GitHub Button */}
+                  <Button
+                    size="icon"
+                    variant="secondary"
+                    className="rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                    onClick={() => window.open(project.github, "_blank")}
+                  >
                     <Github size={20} />
                   </Button>
-                  <Button size="icon" className="rounded-full bg-pink-600 hover:bg-pink-500 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+
+                  {/* ExternalLink (still placeholder) */}
+                  <Button
+                    size="icon"
+                    className="rounded-full bg-pink-600 hover:bg-pink-500 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75"
+                  >
                     <ExternalLink size={20} />
                   </Button>
                 </div>
               </div>
 
+              {/* Card Content */}
               <div className="p-6 flex flex-col flex-grow relative">
-                {/* Subtle gradient shine effect */}
                 <div className="absolute inset-0 bg-gradient-to-b from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                
+
                 <div className="mb-2">
                   <h3 className="text-2xl font-bold text-white group-hover:text-pink-400 transition-colors leading-tight">
                     {project.title}
                   </h3>
                   {project.subtitle && (
-                    <p className="text-sm text-pink-500/80 font-medium mt-1">{project.subtitle}</p>
+                    <p className="text-sm text-pink-500/80 font-medium mt-1">
+                      {project.subtitle}
+                    </p>
                   )}
                 </div>
-                
+
                 <p className="text-gray-400 mb-6 flex-grow text-sm leading-relaxed">
                   {project.description}
                 </p>
-                
+
                 <div className="flex flex-wrap gap-2 mt-auto">
                   {project.tags.map((tag) => (
-                    <span 
-                      key={tag} 
+                    <span
+                      key={tag}
                       className="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-gray-400 border border-white/5"
                     >
                       {tag}
@@ -149,7 +182,11 @@ export default function Projects() {
                   ))}
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/5 flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors cursor-pointer group/link">
+                {/* View Code */}
+                <div
+                  className="mt-6 pt-4 border-t border-white/5 flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors cursor-pointer group/link"
+                  onClick={() => window.open(project.github, "_blank")}
+                >
                   <Github size={16} />
                   <span className="group-hover/link:underline">View Code</span>
                 </div>
@@ -157,9 +194,9 @@ export default function Projects() {
             </motion.div>
           ))}
         </div>
-        
-        {/* Explore Other Projects Button */}
-        <motion.div 
+
+        {/* Explore Other Projects Button (Premium Style) */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -167,13 +204,26 @@ export default function Projects() {
           className="mt-16 flex justify-center"
         >
           <motion.button
-            whileHover={{ y: -3 }}
-            className="btn-secondary h-14 text-lg flex items-center justify-center gap-2"
-            onClick={() => window.open('https://github.com/BhagyashreeMohalkar?tab=repositories', '_blank')}
+            whileHover={{ scale: 1.05, y: -4 }}
+            whileTap={{ scale: 0.95 }}
+            className="
+              px-8 py-3 rounded-lg font-semibold text-lg flex items-center justify-center gap-2
+              bg-gradient-to-r from-rose-500 via-pink-500 to-fuchsia-500
+              text-gray-900 hover:shadow-lg transition-all duration-300 relative overflow-hidden
+            "
+            onClick={() =>
+              window.open(
+                'https://github.com/BhagyashreeMohalkar?tab=repositories',
+                '_blank'
+              )
+            }
             data-testid="button-explore-projects-other"
           >
-            Explore other projects
-            <ArrowRight className="w-5 h-5" />
+            <span className="relative z-10 flex items-center gap-2">
+              Explore other projects
+              <ArrowRight className="w-5 h-5" />
+            </span>
+            <div className="absolute inset-0 opacity-0 hover:opacity-20 transition-opacity duration-300 bg-white" />
           </motion.button>
         </motion.div>
       </div>

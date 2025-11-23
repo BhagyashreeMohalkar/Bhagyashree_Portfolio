@@ -116,7 +116,7 @@ export default function Contact() {
                     <FormItem>
                       <FormLabel>Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="John Doe" {...field} className="bg-black/20 border-white/10 focus:border-primary/50 h-12" />
+                        <Input placeholder="Enter your Name" {...field} className="bg-black/20 border-white/10 focus:border-primary/50 h-12" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -130,7 +130,7 @@ export default function Contact() {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input placeholder="john@example.com" {...field} className="bg-black/20 border-white/10 focus:border-primary/50 h-12" />
+                        <Input placeholder="Enter the Email Id" {...field} className="bg-black/20 border-white/10 focus:border-primary/50 h-12" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -144,7 +144,7 @@ export default function Contact() {
                     <FormItem>
                       <FormLabel>Message</FormLabel>
                       <FormControl>
-                        <Textarea placeholder="Tell me about your project..." {...field} className="bg-black/20 border-white/10 focus:border-primary/50 min-h-[120px]" />
+                        <Textarea placeholder="Enter your Message here...." {...field} className="bg-black/20 border-white/10 focus:border-primary/50 min-h-[120px]" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -167,7 +167,7 @@ export default function Contact() {
       
       {/* Footer inside Contact section or separate? Usually footer is last. I'll add a mini footer here */}
       <div className="mt-20 border-t border-white/5 pt-8 text-center text-gray-500 text-sm">
-        <p>© 2025 Bhagyashree Mohalkar. Built with ❤️ and AI.</p>
+        <p>© 2025 Bhagyashree Mohalkar. Built with ❤️</p>
       </div>
     </section>
   );

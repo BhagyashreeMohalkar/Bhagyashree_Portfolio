@@ -265,7 +265,7 @@ export default function Hero() {
                drop-shadow-[0_0_12px_rgba(200,100,255,0.28)]
                italic font-bold"
           >
-            "Somewhere, something incredible is waiting to be known."
+            "Somewhere, something incredible is waiting to be known"
           </span>
 
           <span className="not-italic text-primary block mt-2">— Carl Sagan</span>
