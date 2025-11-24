@@ -63,7 +63,7 @@ export default function Contact() {
             </div>
             
             <p className="text-gray-400 leading-relaxed">
-              I'm currently available for freelance work and full-time positions.
+              I love creating intelligent tech and exploring new ideas.  
               If you have a project that needs some creative touch, or you just want to say hi,
               feel free to send me a message!
             </p>
