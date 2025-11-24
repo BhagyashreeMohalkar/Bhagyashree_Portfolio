@@ -4,25 +4,26 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
-// Build the Vite config asynchronously
+// Build the Vite config asynchronously (so we can use await import())
 const configPromise = (async () => {
   const plugins: any[] = [react(), tailwindcss()];
 
-  // Try loading Replit plugins — ignore if missing (Vercel builds)
+  // Try to load Replit-specific plugins only if available.
+  // If they're not installed (e.g. on Vercel), these imports will fail and be ignored.
   try {
     const runtime = await import("@replit/vite-plugin-runtime-error-modal");
     if (runtime?.default) plugins.push(runtime.default());
-  } catch (_) { /* ignore */ }
+  } catch (_) { /* ignore if not installed */ }
 
   try {
     const carto = await import("@replit/vite-plugin-cartographer");
     if (carto?.cartographer) plugins.push(carto.cartographer());
-  } catch (_) { /* ignore */ }
+  } catch (_) { /* ignore if not installed */ }
 
   try {
     const banner = await import("@replit/vite-plugin-dev-banner");
     if (banner?.devBanner) plugins.push(banner.devBanner());
-  } catch (_) { /* ignore */ }
+  } catch (_) { /* ignore if not installed */ }
 
   return {
     plugins,
@@ -39,6 +40,7 @@ const configPromise = (async () => {
       postcss: { plugins: [] },
     },
 
+    // project client root
     root: path.resolve(import.meta.dirname, "client"),
 
     build: {
@@ -57,5 +59,5 @@ const configPromise = (async () => {
   };
 })();
 
-// Export config (non-async wrapper to prevent TS overload error)
+// Export a non-async wrapper that returns the Promise (cast to any to avoid TS overload complaints)
 export default defineConfig(() => configPromise as unknown as any);
