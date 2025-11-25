@@ -73,7 +73,7 @@ export default function Certifications() {
   };
 
   // Replace this with your Drive folder URL
-  const otherCertificationsDriveUrl = "https://drive.google.com/drive/folders/YOUR_FOLDER_ID";
+  const otherCertificationsDriveUrl = "https://drive.google.com/drive/folders/1ke3xWG-34XHJdXTyULREb7Z_qTO27NDO?usp=drive_link";
 
   return (
     <section id="certifications" className="py-20 relative overflow-hidden">
