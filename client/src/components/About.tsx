@@ -36,6 +36,7 @@ export default function About() {
               systems can solve everyday problems. Although I work with hardware when needed, my main
               focus is on creating practical, data-driven solutions that have real impact.
             </p>
+
             {/* STATS */}
             <div className="grid grid-cols-3 gap-10 pt-10">
               <div>
@@ -58,20 +59,20 @@ export default function About() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="relative flex justify-center md:justify-end items-start"
+            className="relative flex justify-center md:justify-center items-center"
           >
             {/* Glow halo */}
             <div
-              className="absolute -translate-y-8 md:-translate-y-12
-                         w-[460px] h-[460px] md:w-[500px] md:h-[500px]
+              className="absolute -translate-y-4 md:-translate-y-6
+                         w-[420px] h-[420px] md:w-[460px] md:h-[460px]
                          rounded-full
                          bg-gradient-to-br from-purple-500 via-pink-500 to-purple-700
-                         blur-[120px] opacity-50 -z-10 pointer-events-none"
+                         blur-[110px] opacity-50 -z-10 pointer-events-none"
             />
 
             {/* Circular image */}
             <div
-              className="relative w-[360px] h-[360px] md:w-[420px] md:h-[420px]
+              className="relative w-[340px] h-[340px] md:w-[400px] md:h-[400px]
                          rounded-full overflow-hidden
                          border-[6px] border-purple-400/70
                          shadow-[0_0_40px_rgba(160,80,255,0.32)]
