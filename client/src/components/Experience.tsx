@@ -3,6 +3,18 @@ import { Briefcase } from "lucide-react";
 
 const experiences = [
   {
+    id: 0,
+    title: "Artificial Intelligence Intern",
+    company: "Infosys Springboard · Internship",
+    period: "Nov 2025 – Present",
+    description: [
+      "Working as an Artificial Intelligence Intern under Infosys Springboard.",
+      "Building understanding of AI workflows through guided modules and practical tasks.",
+      "Gaining hands-on exposure to industry-aligned tools, frameworks, and best practices."
+    ],
+    tech: ["Artificial Intelligence", "Machine Learning", "Remote Internship"]
+  },
+  {
     id: 1,
     title: "President — Student Alumni Relations Cell (SARC)",
     company: "Sanjivani College of Engineering",
@@ -98,9 +110,8 @@ export default function Experience() {
                 {/* Timeline Dot */}
                 <div className="absolute left-[-4px] md:left-[29px] top-0 w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_10px_rgba(139,92,246,0.5)]" />
 
-                {/* Card wrapper (group for hover state) */}
                 <div className="relative group">
-                  {/* Glow halo behind card (soft, expands on hover) */}
+                  {/* Glow halo */}
                   <div
                     aria-hidden
                     className="absolute inset-0 rounded-2xl -z-10 pointer-events-none
@@ -114,19 +125,19 @@ export default function Experience() {
                                   hover:border-primary/30 transition-all duration-300
                                   group-hover:-translate-y-2 group-hover:shadow-[0_10px_40px_rgba(160,80,255,0.22)]
                                   ">
-                    {/* Header: keep in-flow date for mobile, absolute for md+ */}
+                    {/* Header */}
                     <div className="flex flex-col md:flex-row md:items-start justify-between mb-4 gap-2">
                       <div className="pr-2 md:pr-6 lg:pr-8">
                         <h3 className="text-2xl font-bold text-primary">{exp.title}</h3>
                         <p className="text-lg font-medium text-blue-400">{exp.company}</p>
                       </div>
 
-                      {/* Inline pill for small screens (keeps flow) */}
+                      {/* Inline pill (mobile) */}
                       <span className="md:hidden text-gray-500 font-mono text-sm bg-white/5 px-3 py-1 rounded-full self-start">
                         {exp.period}
                       </span>
 
-                      {/* Absolute pill for md+ (keeps consistent top-right alignment regardless of lines) */}
+                      {/* Absolute pill (desktop) */}
                       <span
                         className="hidden md:inline-block absolute right-6 top-6 text-gray-500 font-mono text-sm bg-white/5 px-3 py-1 rounded-full"
                         aria-hidden
@@ -135,6 +146,7 @@ export default function Experience() {
                       </span>
                     </div>
 
+                    {/* Bullet List */}
                     <ul className="space-y-3 mb-6">
                       {exp.description.map((item, i) => (
                         <li key={i} className="flex items-start gap-3 text-gray-300">
@@ -144,6 +156,7 @@ export default function Experience() {
                       ))}
                     </ul>
 
+                    {/* Tech Chips */}
                     <div className="flex flex-wrap gap-2">
                       {exp.tech.map((tech) => (
                         <span 
