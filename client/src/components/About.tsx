@@ -30,18 +30,12 @@ export default function About() {
             className="space-y-6 text-lg text-gray-300 leading-relaxed text-justify"
           >
             <p>
-              I am <strong>Bhagyashree Mohalkar</strong>, an AI/ML-driven undergraduate
-              focused on designing intelligent, data-powered systems. My projects span applied
-              machine learning, full-stack AI development, and smart prototype engineering
-              guided by curiosity and a commitment to purposeful innovation.
+              I am <strong>Bhagyashree Mohalkar</strong>, an Electronics and Computer Engineering 
+              undergraduate passionate about learning and building in the field of AI and machine learning. 
+              I enjoy applying ML concepts, developing full-stack AI projects, and exploring how intelligent 
+              systems can solve everyday problems. Although I work with hardware when needed, my main
+              focus is on creating practical, data-driven solutions that have real impact.
             </p>
-
-            <p>
-              Although I work with hardware when required, my primary direction lies in
-              research-oriented AI. I enjoy building systems that learn from data, adapt
-              intelligently, and offer meaningful solutions to real-world problems.
-            </p>
-
             {/* STATS */}
             <div className="grid grid-cols-3 gap-10 pt-10">
               <div>
