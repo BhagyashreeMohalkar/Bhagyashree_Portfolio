@@ -13,21 +13,21 @@ export default function About() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             <span className="text-secondary">About</span> Me
           </h2>
           <div className="w-24 h-1 bg-secondary mx-auto rounded-full" />
           <p className="text-gray-400 mt-4">Get to know the person behind the code</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-16 items-start">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center md:items-start">
 
           {/* LEFT TEXT */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-6 text-lg text-gray-300 leading-relaxed text-justify"
+            className="space-y-6 text-base md:text-lg text-gray-300 leading-relaxed text-justify"
           >
             <p>
               I am <strong>Bhagyashree Mohalkar</strong>, an Electronics and Computer Engineering 
@@ -38,17 +38,17 @@ export default function About() {
             </p>
 
             {/* STATS */}
-            <div className="grid grid-cols-3 gap-10 pt-10">
+            <div className="grid grid-cols-3 gap-6 pt-8 md:pt-10">
               <div>
-                <h3 className="text-4xl font-bold text-white mb-1">100+</h3>
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-1">100+</h3>
                 <p className="text-sm text-gray-400">Code Contributions</p>
               </div>
               <div>
-                <h3 className="text-4xl font-bold text-primary mb-1">06+</h3>
+                <h3 className="text-3xl md:text-4xl font-bold text-primary mb-1">06+</h3>
                 <p className="text-sm text-gray-400">Projects</p>
               </div>
               <div>
-                <h3 className="text-4xl font-bold text-secondary mb-1">07+</h3>
+                <h3 className="text-3xl md:text-4xl font-bold text-secondary mb-1">07+</h3>
                 <p className="text-sm text-gray-400">Hackathons</p>
               </div>
             </div>
@@ -64,15 +64,15 @@ export default function About() {
             {/* Glow halo */}
             <div
               className="absolute -translate-y-4 md:-translate-y-6
-                         w-[420px] h-[420px] md:w-[460px] md:h-[460px]
+                         w-[56vw] max-w-[460px] h-[56vw] max-h-[460px]
                          rounded-full
                          bg-gradient-to-br from-purple-500 via-pink-500 to-purple-700
-                         blur-[110px] opacity-50 -z-10 pointer-events-none"
+                         blur-[80px] md:blur-[110px] opacity-50 -z-10 pointer-events-none"
             />
 
             {/* Circular image */}
             <div
-              className="relative w-[340px] h-[340px] md:w-[400px] md:h-[400px]
+              className="relative w-[48vw] max-w-[400px] aspect-square
                          rounded-full overflow-hidden
                          border-[6px] border-purple-400/70
                          shadow-[0_0_40px_rgba(160,80,255,0.32)]
@@ -82,6 +82,7 @@ export default function About() {
                 src={profileImg}
                 alt="Bhagyashree Mohalkar"
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
           </motion.div>

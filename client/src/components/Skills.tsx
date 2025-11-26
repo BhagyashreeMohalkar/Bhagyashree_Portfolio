@@ -72,7 +72,7 @@ export default function Skills() {
 
   return (
     <section id="skills" className="py-20 relative overflow-hidden">
-      {/* Subtle background pulse */}
+      {/* Subtle background pulse (responsive) */}
       <motion.div
         aria-hidden
         animate={
@@ -84,7 +84,7 @@ export default function Skills() {
         className="absolute inset-0 -z-10 flex justify-center"
         style={{ pointerEvents: "none" }}
       >
-        <div className="w-[900px] h-[900px] bg-gradient-to-br from-purple-900/5 via-pink-600/3 to-emerald-600/3 rounded-full blur-[120px]" />
+        <div className="w-[80vw] max-w-[900px] h-[80vw] max-h-[900px] bg-gradient-to-br from-purple-900/5 via-pink-600/3 to-emerald-600/3 rounded-full blur-[80px] md:blur-[120px]" />
       </motion.div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -95,9 +95,9 @@ export default function Skills() {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-orange-500 mb-2">Skills & Technologies</h2>
-          <div className="w-20 h-1 bg-orange-500 mx-auto rounded-full" />
-          <p className="text-gray-400 mt-3">The magical tools I use to bring ideas to life</p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-orange-500 mb-2">Skills & Technologies</h2>
+          <div className="w-16 md:w-20 h-1 bg-orange-500 mx-auto rounded-full" />
+          <p className="text-gray-400 mt-3 text-sm md:text-base">The magical tools I use to bring ideas to life</p>
         </motion.div>
 
         {/* Category Tabs */}
@@ -122,7 +122,7 @@ export default function Skills() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 lg:gap-6">
           {visibleSkills.map((skill, index) => {
             const Icon = skill.icon;
             const isTooltipOpen = openTooltip === skill.name;
@@ -145,7 +145,7 @@ export default function Skills() {
                   onKeyDown={(e) => handleKeyTooltip(e, skill.name)}
                   onMouseEnter={() => setOpenTooltip(skill.name)}
                   onMouseLeave={() => setOpenTooltip((p) => (p === skill.name ? null : p))}
-                  className="group bg-card border border-white/6 rounded-2xl p-6 flex flex-col items-center gap-4 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all duration-250 hover:border-white/10"
+                  className="group bg-card border border-white/6 rounded-2xl p-4 sm:p-5 flex flex-col items-center gap-3 sm:gap-4 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all duration-250 hover:border-white/10"
                 >
                   {/* halo behind tile */}
                   <div
@@ -153,20 +153,20 @@ export default function Skills() {
                     className="absolute inset-0 -z-10 rounded-2xl opacity-0 group-hover:opacity-95 transition-opacity duration-300"
                     style={{
                       background: `radial-gradient(circle, ${skill.color}44, transparent 35%)`,
-                      filter: "blur(36px)",
+                      filter: "blur(28px)",
                     }}
                   />
 
                   {/* icon container with stronger glow */}
                   <div
-                    className="relative z-10 p-3 rounded-xl transition-transform duration-300 group-hover:scale-105"
+                    className="relative z-10 p-2 sm:p-3 rounded-xl transition-transform duration-300 group-hover:scale-105"
                     style={{
                       background: "rgba(255,255,255,0.02)",
                       boxShadow: `0 8px 40px ${hexToRgba(skill.color, 0.14)}, 0 0 18px ${hexToRgba(skill.color, 0.12)}`,
                     }}
                   >
                     <Icon
-                      size={46}
+                      size={40}
                       style={{
                         color: skill.color,
                         filter: `drop-shadow(0 10px 22px ${hexToRgba(skill.color, 0.18)})`,
@@ -179,11 +179,12 @@ export default function Skills() {
                   </div>
                 </div>
 
-                {/* tooltip */}
+                {/* tooltip (responsive cap) */}
                 <div
-                  className={`pointer-events-none absolute left-1/2 transform -translate-x-1/2 mt-3 z-50 w-60 transition-all duration-200 ${
+                  className={`pointer-events-none absolute left-1/2 transform -translate-x-1/2 mt-3 z-50 transition-all duration-200 ${
                     isTooltipOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
                   }`}
+                  style={{ width: "auto", maxWidth: "85vw" }}
                 >
                   <div className="bg-card border border-white/10 p-3 rounded-lg text-sm shadow-lg">
                     <div className="text-white font-semibold">{skill.name}</div>
@@ -197,7 +198,7 @@ export default function Skills() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-14">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-10 md:mt-14">
           {[
             { label: "Technologies", value: `${skills.length}+`, icon: "🛠️" },
             { label: "Projects", value: "10+", icon: "🚀" },
@@ -211,11 +212,11 @@ export default function Skills() {
               viewport={{ once: true }}
               transition={{ delay: 0.12 + i * 0.06 }}
               whileHover={{ scale: 1.03 }}
-              className="bg-card p-6 rounded-2xl border border-white/6 text-center"
+              className="bg-card p-4 md:p-6 rounded-2xl border border-white/6 text-center"
             >
               <div className="text-2xl mb-2">{stat.icon}</div>
-              <div className="text-xl font-bold text-orange-500 mb-1">{stat.value}</div>
-              <div className="text-xs text-gray-400">{stat.label}</div>
+              <div className="text-lg md:text-xl font-bold text-orange-500 mb-1">{stat.value}</div>
+              <div className="text-xs md:text-sm text-gray-400">{stat.label}</div>
             </motion.div>
           ))}
         </div>

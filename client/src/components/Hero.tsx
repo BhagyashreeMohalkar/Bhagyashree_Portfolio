@@ -56,7 +56,13 @@ export default function Hero() {
           <motion.path
             d="M0,300 Q300,250 600,300 T1200,300 L1200,600 L0,600 Z"
             fill="url(#waveGradient)"
-            animate={{ d: ["M0,300 Q300,250 600,300 T1200,300 L1200,600 L0,600 Z", "M0,320 Q300,270 600,320 T1200,320 L1200,600 L0,600 Z", "M0,300 Q300,250 600,300 T1200,300 L1200,600 L0,600 Z"] }}
+            animate={{
+              d: [
+                "M0,300 Q300,250 600,300 T1200,300 L1200,600 L0,600 Z",
+                "M0,320 Q300,270 600,320 T1200,320 L1200,600 L0,600 Z",
+                "M0,300 Q300,250 600,300 T1200,300 L1200,600 L0,600 Z",
+              ],
+            }}
             transition={{ duration: 8, repeat: Infinity }}
             opacity={0.08}
           />
@@ -65,7 +71,13 @@ export default function Hero() {
           <motion.path
             d="M0,350 Q300,300 600,350 T1200,350 L1200,600 L0,600 Z"
             fill="url(#waveGradient)"
-            animate={{ d: ["M0,350 Q300,300 600,350 T1200,350 L1200,600 L0,600 Z", "M0,330 Q300,280 600,330 T1200,330 L1200,600 L0,600 Z", "M0,350 Q300,300 600,350 T1200,350 L1200,600 L0,600 Z"] }}
+            animate={{
+              d: [
+                "M0,350 Q300,300 600,350 T1200,350 L1200,600 L0,600 Z",
+                "M0,330 Q300,280 600,330 T1200,330 L1200,600 L0,600 Z",
+                "M0,350 Q300,300 600,350 T1200,350 L1200,600 L0,600 Z",
+              ],
+            }}
             transition={{ duration: 10, repeat: Infinity, delay: 1 }}
             opacity={0.06}
           />
@@ -74,7 +86,13 @@ export default function Hero() {
           <motion.path
             d="M0,250 Q300,200 600,250 T1200,250 L1200,600 L0,600 Z"
             fill="url(#waveGradient)"
-            animate={{ d: ["M0,250 Q300,200 600,250 T1200,250 L1200,600 L0,600 Z", "M0,270 Q300,220 600,270 T1200,270 L1200,600 L0,600 Z", "M0,250 Q300,200 600,250 T1200,250 L1200,600 L0,600 Z"] }}
+            animate={{
+              d: [
+                "M0,250 Q300,200 600,250 T1200,250 L1200,600 L0,600 Z",
+                "M0,270 Q300,220 600,270 T1200,270 L1200,600 L0,600 Z",
+                "M0,250 Q300,200 600,250 T1200,250 L1200,600 L0,600 Z",
+              ],
+            }}
             transition={{ duration: 6, repeat: Infinity, delay: 0.5 }}
             opacity={0.07}
           />
@@ -147,7 +165,8 @@ export default function Hero() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute top-20 left-20 w-96 h-96 bg-primary/30 rounded-full blur-[128px] pointer-events-none"
+        // responsive size: use vw but cap with max-w
+        className="absolute top-20 left-20 w-[40vw] max-w-[384px] h-[40vw] max-h-[384px] bg-primary/30 rounded-full blur-[96px] pointer-events-none"
       />
       <motion.div
         animate={{
@@ -162,7 +181,7 @@ export default function Hero() {
           ease: "easeInOut",
           delay: 1,
         }}
-        className="absolute bottom-20 right-20 w-96 h-96 bg-secondary/30 rounded-full blur-[128px] pointer-events-none"
+        className="absolute bottom-20 right-20 w-[40vw] max-w-[384px] h-[40vw] max-h-[384px] bg-secondary/30 rounded-full blur-[96px] pointer-events-none"
       />
 
       <motion.div
@@ -176,7 +195,7 @@ export default function Hero() {
           ease: "easeInOut",
           delay: 2,
         }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-900/20 rounded-full blur-[100px] pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] max-w-[500px] h-[60vw] max-h-[500px] bg-purple-900/20 rounded-full blur-[80px] pointer-events-none"
       />
 
       <div className="container mx-auto px-4 z-10 flex flex-col items-center text-center gap-8">
@@ -242,7 +261,7 @@ export default function Hero() {
                 }}
                 className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 bg-[length:200%_auto] pb-2"
               >
-                Researcher
+              Tech Explorer
               </motion.span>
             </div>
           </h1>

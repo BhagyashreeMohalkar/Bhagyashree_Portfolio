@@ -82,92 +82,93 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20">
-      <div className="container mx-auto px-4">
+    <section id="projects" className="py-16 md:py-20">
+      <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-pink-500">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-pink-500">
             Featured Projects
           </h2>
-          <div className="w-20 h-1 bg-pink-500 mx-auto rounded-full" />
-          <p className="text-gray-400 mt-4">
+          <div className="w-16 md:w-20 h-1 bg-pink-500 mx-auto rounded-full" />
+          <p className="text-gray-400 mt-3 text-sm md:text-base">
             A showcase of my creative work and technical expertise
           </p>
         </motion.div>
 
         {/* Project Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
+              transition={{ delay: index * 0.06 }}
+              whileHover={{ y: -8 }}
               className="group bg-card border border-white/5 rounded-2xl overflow-hidden hover:border-pink-500/30 transition-all duration-300 hover:shadow-[0_10px_30px_-15px_rgba(236,72,153,0.3)] flex flex-col"
             >
               {/* Image */}
-              <div className="relative aspect-video overflow-hidden bg-black/50">
+              <div className="relative aspect-video w-full overflow-hidden bg-black/50">
                 <motion.img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover opacity-90 group-hover:opacity-100"
-                  whileHover={{ scale: 1.1 }}
+                  whileHover={{ scale: 1.06 }}
                   transition={{ duration: 0.5 }}
                 />
 
                 {/* Featured Badge */}
                 {project.featured && (
-                  <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white border border-white/10 z-10">
+                  <div className="absolute top-3 right-3 bg-white/10 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[11px] md:text-xs font-semibold text-white border border-white/10 z-10">
                     Featured
                   </div>
                 )}
 
                 {/* Hover Overlay Buttons */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 z-10">
-                  
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 z-10 px-4">
                   {/* GitHub Button */}
                   <Button
                     size="icon"
                     variant="secondary"
-                    className="rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                    className="rounded-full transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300"
                     onClick={() => window.open(project.github, "_blank")}
+                    aria-label={`Open ${project.title} on GitHub`}
                   >
-                    <Github size={20} />
+                    <Github size={18} />
                   </Button>
 
-                  {/* ExternalLink (still placeholder) */}
+                  {/* ExternalLink (placeholder) */}
                   <Button
                     size="icon"
-                    className="rounded-full bg-pink-600 hover:bg-pink-500 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75"
+                    className="rounded-full bg-pink-600 hover:bg-pink-500 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300 delay-75"
+                    aria-label={`Open ${project.title} demo`}
                   >
-                    <ExternalLink size={20} />
+                    <ExternalLink size={18} />
                   </Button>
                 </div>
               </div>
 
               {/* Card Content */}
-              <div className="p-6 flex flex-col flex-grow relative">
+              <div className="p-4 md:p-6 flex flex-col flex-grow relative">
                 <div className="absolute inset-0 bg-gradient-to-b from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
                 <div className="mb-2">
-                  <h3 className="text-2xl font-bold text-white group-hover:text-pink-400 transition-colors leading-tight">
+                  <h3 className="text-lg md:text-2xl font-bold text-white group-hover:text-pink-400 transition-colors leading-tight">
                     {project.title}
                   </h3>
                   {project.subtitle && (
-                    <p className="text-sm text-pink-500/80 font-medium mt-1">
+                    <p className="text-xs md:text-sm text-pink-500/80 font-medium mt-1">
                       {project.subtitle}
                     </p>
                   )}
                 </div>
 
-                <p className="text-gray-400 mb-6 flex-grow text-sm leading-relaxed">
+                <p className="text-gray-400 mb-4 md:mb-6 flex-grow text-sm md:text-base leading-relaxed">
                   {project.description}
                 </p>
 
@@ -175,7 +176,7 @@ export default function Projects() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-gray-400 border border-white/5"
+                      className="px-2.5 py-1 rounded-full text-xs md:text-sm font-medium bg-white/5 text-gray-400 border border-white/5"
                     >
                       {tag}
                     </span>
@@ -184,11 +185,11 @@ export default function Projects() {
 
                 {/* View Code */}
                 <div
-                  className="mt-6 pt-4 border-t border-white/5 flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors cursor-pointer group/link"
+                  className="mt-4 md:mt-6 pt-3 border-t border-white/5 flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors cursor-pointer group/link"
                   onClick={() => window.open(project.github, "_blank")}
                 >
-                  <Github size={16} />
-                  <span className="group-hover/link:underline">View Code</span>
+                  <Github size={14} />
+                  <span className="group-hover/link:underline text-xs md:text-sm">View Code</span>
                 </div>
               </div>
             </motion.div>
@@ -201,13 +202,13 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="mt-16 flex justify-center"
+          className="mt-12 md:mt-16 flex justify-center"
         >
           <motion.button
-            whileHover={{ scale: 1.05, y: -4 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.03, y: -3 }}
+            whileTap={{ scale: 0.98 }}
             className="
-              px-8 py-3 rounded-lg font-semibold text-lg flex items-center justify-center gap-2
+              px-6 md:px-8 py-2.5 md:py-3 rounded-lg font-semibold text-base md:text-lg flex items-center justify-center gap-2
               bg-gradient-to-r from-rose-500 via-pink-500 to-fuchsia-500
               text-gray-900 hover:shadow-lg transition-all duration-300 relative overflow-hidden
             "
@@ -221,7 +222,7 @@ export default function Projects() {
           >
             <span className="relative z-10 flex items-center gap-2">
               Explore other projects
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
             </span>
             <div className="absolute inset-0 opacity-0 hover:opacity-20 transition-opacity duration-300 bg-white" />
           </motion.button>
