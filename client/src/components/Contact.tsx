@@ -26,13 +26,43 @@ export default function Contact() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: "Message sent!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
-    });
-    form.reset();
+  // ⭐ Web3Forms Integration (ONLY change added)
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const formData = new FormData();
+      formData.append("access_key", "1a42bdc5-5546-44f9-a2ed-912f9f506385");
+      formData.append("name", values.name);
+      formData.append("email", values.email);
+      formData.append("message", values.message);
+      formData.append("subject", "New Portfolio Contact Message");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast({
+          title: "Message sent!",
+          description: "Thanks for reaching out. I'll get back to you soon.",
+        });
+        form.reset();
+      } else {
+        toast({
+          title: "Failed to send message",
+          description: data.message,
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    }
   }
 
   return (
@@ -165,7 +195,7 @@ export default function Contact() {
         </div>
       </div>
       
-      {/* Footer inside Contact section or separate? Usually footer is last. I'll add a mini footer here */}
+      {/* Footer inside Contact section */}
       <div className="mt-20 border-t border-white/5 pt-8 text-center text-gray-500 text-sm">
         <p>© 2025 Bhagyashree Mohalkar. Built with ❤️</p>
       </div>
