@@ -7,4 +7,4 @@ dist/
 .env.*.local
 *.tar.gz
 .cache/
-.vite/
+.vite/.local/
