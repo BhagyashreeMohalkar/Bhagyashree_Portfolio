@@ -12,7 +12,7 @@ export default function Certifications() {
       title: "Cloud Engineer Certificate",
       issuer: "Google Cloud",
       date: "2025",
-      link: "https://drive.google.com/",
+      link: "https://drive.google.com/file/d/1TZMUvfY2zxrktIizZLiGl4etofc1sRjL/view?usp=sharing",
       icon: "logo",
       logoUrl: googleLogo,
       accentColor: "from-blue-500 via-blue-400 to-cyan-400"
