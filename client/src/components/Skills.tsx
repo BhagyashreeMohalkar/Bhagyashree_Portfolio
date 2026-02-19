@@ -4,7 +4,6 @@ import {
   SiHtml5,
   SiCss3,
   SiC,
-  SiCplusplus,
   SiJavascript,
   SiPython,
   SiMysql,
@@ -18,7 +17,9 @@ import {
   SiGit,
   SiLatex
 } from "react-icons/si";
-import { FaJava } from "react-icons/fa";
+
+import { FaFileExcel } from "react-icons/fa";
+import { BsBarChartFill } from "react-icons/bs";
 
 type Skill = {
   name: string;
@@ -32,10 +33,8 @@ const skills: Skill[] = [
   { name: "HTML", icon: SiHtml5, color: "#FF5F2E", category: "Languages", note: "Semantic markup" },
   { name: "CSS", icon: SiCss3, color: "#2EB1FF", category: "Languages", note: "Styling & responsive" },
   { name: "C", icon: SiC, color: "#9FB4C8", category: "Languages", note: "Systems fundamentals" },
-  { name: "C++", icon: SiCplusplus, color: "#0EA5C9", category: "Languages", note: "Performance & algorithms" },
   { name: "JavaScript", icon: SiJavascript, color: "#FFD54A", category: "Languages", note: "Frontend & scripting" },
   { name: "Python", icon: SiPython, color: "#3BB3D6", category: "Languages", note: "ML & scripting" },
-  { name: "Java", icon: FaJava, color: "#1E88A8", category: "Languages", note: "OOP & systems" },
   { name: "SQL", icon: SiMysql, color: "#21A3B0", category: "Languages", note: "Data queries" },
 
   { name: "NumPy", icon: SiNumpy, color: "#0077B6", category: "AI-ML", note: "Numerical computing" },
@@ -47,7 +46,9 @@ const skills: Skill[] = [
 
   { name: "GitHub", icon: SiGithub, color: "#FFFFFF", category: "Tools", note: "Repo hosting & collaboration" },
   { name: "Git", icon: SiGit, color: "#FF5F3A", category: "Tools", note: "Version control" },
-  { name: "LaTeX (Overleaf)", icon: SiLatex, color: "#00A89D", category: "Tools", note: "Scientific writing & docs (Overleaf)" }
+  { name: "LaTeX (Overleaf)", icon: SiLatex, color: "#00A89D", category: "Tools", note: "Scientific writing & docs (Overleaf)" },
+  { name: "Power BI", icon: BsBarChartFill, color: "#F2C811", category: "Tools", note: "Business intelligence & dashboards" },
+  { name: "Microsoft Excel", icon: FaFileExcel, color: "#217346", category: "Tools", note: "Data analysis & reporting" }
 ];
 
 const categories = ["All", "Languages", "AI-ML", "Tools"] as const;
@@ -71,37 +72,45 @@ export default function Skills() {
   }
 
   return (
-    <section id="skills" className="py-20 relative overflow-hidden">
-      {/* Subtle background pulse (responsive) */}
+    <section id="skills" className="py-24 relative overflow-hidden">
+
+      {/* Subtle Tech Grid Background */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] -z-20 opacity-40" />
+
+      {/* Animated Glow Background */}
       <motion.div
         aria-hidden
         animate={
           prefersReducedMotion
             ? undefined
-            : { opacity: [0.04, 0.09, 0.04], scale: [1, 1.03, 1] }
+            : { opacity: [0.04, 0.09, 0.04], scale: [1, 1.05, 1] }
         }
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         className="absolute inset-0 -z-10 flex justify-center"
-        style={{ pointerEvents: "none" }}
       >
-        <div className="w-[80vw] max-w-[900px] h-[80vw] max-h-[900px] bg-gradient-to-br from-purple-900/5 via-pink-600/3 to-emerald-600/3 rounded-full blur-[80px] md:blur-[120px]" />
+        <div className="w-[900px] h-[900px] bg-gradient-to-br from-purple-900/10 via-pink-600/5 to-emerald-600/5 rounded-full blur-[120px]" />
       </motion.div>
 
       <div className="container mx-auto px-4 relative z-10">
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-10"
+          className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-orange-500 mb-2">Skills & Technologies</h2>
-          <div className="w-16 md:w-20 h-1 bg-orange-500 mx-auto rounded-full" />
-          <p className="text-gray-400 mt-3 text-sm md:text-base">The magical tools I use to bring ideas to life</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-orange-400 via-pink-500 to-purple-500 bg-clip-text text-transparent animate-gradient">
+            Skills & Technologies
+          </h2>
+          <div className="w-24 h-1 bg-orange-500 mx-auto rounded-full" />
+          <p className="text-gray-400 mt-4">
+            The magical tools I use to bring ideas to life
+          </p>
         </motion.div>
 
         {/* Category Tabs */}
-        <div className="flex justify-center gap-3 mb-8">
+        <div className="flex justify-center gap-4 mb-10">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -109,20 +118,19 @@ export default function Skills() {
                 setActiveCategory(cat);
                 setOpenTooltip(null);
               }}
-              className={`px-4 py-2 rounded-full text-sm transition-colors duration-200 font-medium ${
+              className={`px-5 py-2 rounded-full text-sm transition-all duration-300 font-medium ${
                 activeCategory === cat
-                  ? "bg-primary text-white shadow-[0_8px_30px_rgba(139,92,246,0.18)]"
-                  : "bg-white/5 text-gray-300 hover:bg-white/8"
+                  ? "bg-primary text-white shadow-[0_0_20px_rgba(139,92,246,0.4)]"
+                  : "bg-white/5 text-gray-300 hover:bg-white/10"
               }`}
-              aria-pressed={activeCategory === cat}
             >
               {cat}
             </button>
           ))}
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 lg:gap-6">
+        {/* Skills Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
           {visibleSkills.map((skill, index) => {
             const Icon = skill.icon;
             const isTooltipOpen = openTooltip === skill.name;
@@ -132,61 +140,52 @@ export default function Skills() {
                 key={skill.name}
                 initial={{ opacity: 0, y: 22 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.045 }}
-                whileHover={{ y: -6 }}
+                transition={{ delay: index * 0.05 }}
+                whileHover={{ y: -8 }}
                 className="relative"
               >
                 <div
                   role="button"
                   tabIndex={0}
-                  aria-label={skill.name}
                   onClick={() => setOpenTooltip((p) => (p === skill.name ? null : skill.name))}
                   onKeyDown={(e) => handleKeyTooltip(e, skill.name)}
-                  onMouseEnter={() => setOpenTooltip(skill.name)}
-                  onMouseLeave={() => setOpenTooltip((p) => (p === skill.name ? null : p))}
-                  className="group bg-card border border-white/6 rounded-2xl p-4 sm:p-5 flex flex-col items-center gap-3 sm:gap-4 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all duration-250 hover:border-white/10"
+                  className="group relative bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 flex flex-col items-center gap-4 cursor-pointer transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_40px_rgba(139,92,246,0.25)] focus:ring-2 focus:ring-primary/30"
                 >
-                  {/* halo behind tile */}
+                  {/* Halo Glow */}
                   <div
-                    aria-hidden
-                    className="absolute inset-0 -z-10 rounded-2xl opacity-0 group-hover:opacity-95 transition-opacity duration-300"
+                    className="absolute inset-0 -z-10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     style={{
-                      background: `radial-gradient(circle, ${skill.color}44, transparent 35%)`,
-                      filter: "blur(28px)",
+                      background: `radial-gradient(circle, ${skill.color}33, transparent 60%)`,
+                      filter: "blur(40px)"
                     }}
                   />
 
-                  {/* icon container with stronger glow */}
-                  <div
-                    className="relative z-10 p-2 sm:p-3 rounded-xl transition-transform duration-300 group-hover:scale-105"
-                    style={{
-                      background: "rgba(255,255,255,0.02)",
-                      boxShadow: `0 8px 40px ${hexToRgba(skill.color, 0.14)}, 0 0 18px ${hexToRgba(skill.color, 0.12)}`,
-                    }}
+                  {/* Floating Icon */}
+                  <motion.div
+                    animate={{ y: [0, -5, 0] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                   >
                     <Icon
-                      size={40}
+                      size={42}
                       style={{
                         color: skill.color,
-                        filter: `drop-shadow(0 10px 22px ${hexToRgba(skill.color, 0.18)})`,
+                        filter: `drop-shadow(0 10px 25px ${hexToRgba(skill.color, 0.3)})`
                       }}
                     />
-                  </div>
+                  </motion.div>
 
                   <div className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">
                     {skill.name}
                   </div>
                 </div>
 
-                {/* tooltip (responsive cap) */}
+                {/* Tooltip */}
                 <div
-                  className={`pointer-events-none absolute left-1/2 transform -translate-x-1/2 mt-3 z-50 transition-all duration-200 ${
+                  className={`absolute left-1/2 transform -translate-x-1/2 mt-3 z-50 transition-all duration-200 ${
                     isTooltipOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
                   }`}
-                  style={{ width: "auto", maxWidth: "85vw" }}
                 >
-                  <div className="bg-card border border-white/10 p-3 rounded-lg text-sm shadow-lg">
+                  <div className="bg-card border border-white/10 p-3 rounded-lg text-sm shadow-lg max-w-[220px]">
                     <div className="text-white font-semibold">{skill.name}</div>
                     <div className="text-xs text-gray-400">{skill.category}</div>
                     {skill.note && <p className="text-xs text-gray-300 mt-2">{skill.note}</p>}
@@ -196,30 +195,6 @@ export default function Skills() {
             );
           })}
         </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-10 md:mt-14">
-          {[
-            { label: "Technologies", value: `${skills.length}+`, icon: "🛠️" },
-            { label: "Projects", value: "10+", icon: "🚀" },
-            { label: "Certifications", value: "5+", icon: "⚡" },
-            { label: "Coffee Cups", value: "∞", icon: "☕" }
-          ].map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.12 + i * 0.06 }}
-              whileHover={{ scale: 1.03 }}
-              className="bg-card p-4 md:p-6 rounded-2xl border border-white/6 text-center"
-            >
-              <div className="text-2xl mb-2">{stat.icon}</div>
-              <div className="text-lg md:text-xl font-bold text-orange-500 mb-1">{stat.value}</div>
-              <div className="text-xs md:text-sm text-gray-400">{stat.label}</div>
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -227,9 +202,7 @@ export default function Skills() {
 
 function hexToRgba(hex: string, alpha = 1) {
   const h = hex.replace("#", "");
-  const full =
-    h.length === 3 ? h.split("").map((c) => c + c).join("") : h.slice(0, 6);
-  const bigint = parseInt(full, 16);
+  const bigint = parseInt(h.length === 3 ? h.split("").map(c => c + c).join("") : h, 16);
   const r = (bigint >> 16) & 255;
   const g = (bigint >> 8) & 255;
   const b = bigint & 255;

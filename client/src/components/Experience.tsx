@@ -6,7 +6,7 @@ const experiences = [
     id: 0,
     title: "Artificial Intelligence Intern",
     company: "Infosys Springboard · Internship",
-    period: "Nov 2025 – Present",
+    period: "Nov 2025 – Jan 2026",
     description: [
       "Working as an Artificial Intelligence Intern under Infosys Springboard.",
       "Building understanding of AI workflows through guided modules and practical tasks.",
