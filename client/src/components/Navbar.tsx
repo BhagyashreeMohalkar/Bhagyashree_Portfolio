@@ -1,6 +1,17 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Home, User, Briefcase, Code, FolderGit2, Award, Trophy, Mail } from "lucide-react";
+import {
+  Home,
+  User,
+  Briefcase,
+  Code,
+  FolderGit2,
+  Award,
+  Trophy,
+  Mail,
+  Menu,
+  X,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -17,6 +28,9 @@ const navItems = [
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
   const [scrolled, setScrolled] = useState(false);
+
+  // Mobile menu state
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,28 +62,34 @@ export default function Navbar() {
   };
 
   return (
-    <motion.div 
+  <>
+    {/* Desktop Navbar */}
+    <motion.div
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-6 inset-x-0 flex justify-center z-50 pointer-events-none"
+      className="hidden md:flex fixed top-6 inset-x-0 justify-center z-50 pointer-events-none"
     >
-      <nav className={cn(
-        "pointer-events-auto flex items-center gap-1 p-1.5 rounded-full transition-all duration-300",
-        scrolled ? "glass-nav shadow-lg shadow-primary/10" : "bg-transparent"
-      )}>
+      <nav
+        className={cn(
+          "pointer-events-auto flex items-center gap-1 p-1.5 rounded-full transition-all duration-300",
+          scrolled
+            ? "glass-nav shadow-lg shadow-primary/10"
+            : "bg-transparent"
+        )}
+      >
         {navItems.map((item) => {
           const isActive = activeSection === item.name.toLowerCase();
           const Icon = item.icon;
-          
+
           return (
             <button
               key={item.name}
               onClick={() => scrollTo(item.name.toLowerCase())}
               className={cn(
                 "relative px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 flex items-center gap-2",
-                isActive 
-                  ? "text-white" 
+                isActive
+                  ? "text-white"
                   : "text-muted-foreground hover:text-white"
               )}
             >
@@ -77,15 +97,60 @@ export default function Navbar() {
                 <motion.div
                   layoutId="active-pill"
                   className="absolute inset-0 bg-primary/20 rounded-full -z-10"
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />
               )}
-              <Icon size={16} className={isActive ? "text-primary" : ""} />
-              <span className="hidden sm:inline">{item.name}</span>
+
+              <Icon
+                size={16}
+                className={isActive ? "text-primary" : ""}
+              />
+
+              <span className="hidden lg:inline">{item.name}</span>
             </button>
           );
         })}
       </nav>
     </motion.div>
-  );
-}
+
+    {/* Mobile Hamburger */}
+    <div className="md:hidden fixed top-4 right-4 z-50">
+      <button
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        className="p-3 rounded-xl glass-nav"
+      >
+        {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+      </button>
+    </div>
+
+    {/* Mobile Menu */}
+    {mobileMenuOpen && (
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="md:hidden fixed top-20 left-4 right-4 z-40 rounded-2xl glass-nav p-4"
+      >
+        <div className="flex flex-col gap-2">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+
+            return (
+              <button
+                key={item.name}
+                onClick={() => {
+                  scrollTo(item.name.toLowerCase());
+                  setMobileMenuOpen(false);
+                }}
+                className="flex items-center gap-3 p-3 rounded-xl hover:bg-primary/10"
+              >
+                <Icon size={18} />
+                <span>{item.name}</span>
+              </button>
+            );
+          })}
+        </div>
+      </motion.div>
+    )}
+  </>
+);
+  
+} 
