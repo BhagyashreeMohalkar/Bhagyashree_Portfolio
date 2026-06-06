@@ -7,7 +7,6 @@ import imgHeart from "@assets/images/ai_heart_disease_detection_interface.png";
 import imgNexus from "@assets/images/nexus_ai_network_concept.png";
 import imgSupermarket from "@assets/images/supermarket_transaction_analysis.png";
 import imgCancer from "@assets/images/cancer_detection_medical_imaging.png";
-import imgShoes from "@assets/images/smart_iot_navigation_shoes.png";
 import imgTraceFinder from "@assets/images/tracefinder_forensic_scanner.png";
 import imgBloodConnect from "@assets/images/blood_connect_pro.png";
 
