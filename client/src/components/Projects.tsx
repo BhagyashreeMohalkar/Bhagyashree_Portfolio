@@ -8,11 +8,20 @@ import imgNexus from "@assets/images/nexus_ai_network_concept.png";
 import imgMental from "@assets/images/mental_health_analytics_dashboard.png";
 import imgCancer from "@assets/images/cancer_detection_medical_imaging.png";
 import imgShoes from "@assets/images/smart_iot_navigation_shoes.png";
-import imgIrrigation from "@assets/images/smart_irrigation_iot_system.png";
+import imgTraceFinder from "@assets/images/tracefinder_forensic_scanner.png";
 
 const projects = [
-  {
+   {
     id: 1,
+    title: "TraceFinder",
+    subtitle: "Forensic Scanner Identification",
+    description: "An advanced forensic analysis tool leveraging AI for scanner identification and trace evidence detection. Enables law enforcement and forensic teams to identify document origins and analyze digital fingerprints with high precision.",
+    tags: ["AI", "Forensics", "Computer Vision", "Python"],
+    image: imgTraceFinder,
+    featured: true
+  },
+  {
+    id: 2,
     title: "Hridayam",
     subtitle: "AI-powered Heart Disease Detection",
     description:
@@ -23,7 +32,7 @@ const projects = [
     github: "https://github.com/BhagyashreeMohalkar/Hridayam--AI-powered-Heart-disease-Detection",
   },
   {
-    id: 2,
+    id: 3,
     title: "Nexus.AI",
     subtitle: "Next-Gen Artificial Intelligence",
     description:
@@ -34,7 +43,7 @@ const projects = [
     github: "https://github.com/BhagyashreeMohalkar/Nexus.AI-",
   },
   {
-    id: 3,
+    id: 4,
     title: "Mental Fitness Tracker",
     subtitle: "using Machine Learning",
     description:
@@ -45,7 +54,7 @@ const projects = [
     github: "https://github.com/BhagyashreeMohalkar/Mental_Fitness_Tracker-",
   },
   {
-    id: 4,
+    id: 5,
     title: "Cancerous Tissue Detection",
     subtitle: "with Logistic Regression",
     description:
@@ -56,7 +65,7 @@ const projects = [
     github: "https://github.com/BhagyashreeMohalkar/Cancerous-Tissue-Detection-with-Logistic-Regression",
   },
   {
-    id: 5,
+    id: 6,
     title: "Smart Navigation Shoes",
     subtitle: "IoT Wearable Tech",
     description:
@@ -67,7 +76,7 @@ const projects = [
     github: "https://github.com/BhagyashreeMohalkar/Smart-Navigation-Shoes",
   },
   {
-    id: 6,
+    id: 7,
     title: "Smart Irrigation System",
     subtitle: "Soil Moisture Sensing",
     description:
