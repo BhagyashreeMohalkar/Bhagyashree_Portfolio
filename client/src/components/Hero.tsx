@@ -251,36 +251,40 @@ export default function Hero() {
         </motion.div>
 
         {/* Quote with depth */}
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="max-w-3xl text-xl md:text-2xl lg:text-3xl leading-relaxed font-semibold text-center relative"
-          style={{
-            transformStyle: "preserve-3d",
-          }}
-          whileHover={{ scale: 1.05 }}
-        >
-          <span
-            className="bg-clip-text text-transparent
-               bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500
-               drop-shadow-[0_0_12px_rgba(200,100,255,0.28)]
-               italic font-bold"
-          >
-            "Somewhere, something incredible is waiting to be known"
-          </span>
+         <motion.div
+  initial={{ y: 20, opacity: 0 }}
+  animate={{ y: 0, opacity: 1 }}
+  transition={{ delay: 0.4 }}
+  className="max-w-none text-xl md:text-2xl lg:text-3xl text-center relative"
+  style={{
+    transformStyle: "preserve-3d",
+  }}
+  whileHover={{ scale: 1.05 }}
+>
+  <span
+    className="
+      whitespace-nowrap
+      bg-clip-text text-transparent
+      bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500
+      drop-shadow-[0_0_12px_rgba(200,100,255,0.28)]
+      italic font-bold
+    "
+  >
+    "Somewhere, something incredible is waiting to be known"
+  </span>
 
-          <span className="not-italic text-primary block mt-2">— Carl Sagan</span>
+  <span className="not-italic text-primary block mt-3 text-lg md:text-xl">
+    — Carl Sagan
+  </span>
 
-          {/* Gradient glow underline */}
-          <motion.div
-            className="mx-auto mt-3 w-40 h-1 rounded-full
-                  bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500
-                  shadow-[0_0_18px_rgba(200,100,255,0.45)]"
-            animate={{ scaleX: [1, 1.2, 1] }}
-            transition={{ duration: 3, repeat: Infinity }}
-          />
-        </motion.div>
+  <motion.div
+    className="mx-auto mt-3 w-40 h-1 rounded-full
+      bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500
+      shadow-[0_0_18px_rgba(200,100,255,0.45)]"
+    animate={{ scaleX: [1, 1.2, 1] }}
+    transition={{ duration: 3, repeat: Infinity }}
+  />
+</motion.div>
 
         {/* CTA Buttons with 3D lift */}
         <motion.div
