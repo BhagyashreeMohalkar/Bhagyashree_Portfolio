@@ -15,17 +15,17 @@ const projects = [
     id: 1,
     title: "TraceFinder",
     subtitle: "Forensic Scanner Identification",
-    description: "An advanced forensic analysis tool leveraging AI for scanner identification and trace evidence detection. Enables law enforcement and forensic teams to identify document origins and analyze digital fingerprints with high precision.",
+    description: "An AI-driven forensic scanner identification system that analyzes scanner-specific digital fingerprints to determine the source of scanned documents. Achieved 94.64% accuracy and a weighted F1-score of 0.948 on a dataset of 4,500+ scanned images across 7 scanner classes, enabling reliable document origin verification and supporting digital forensic investigations.",
     tags: ["AI", "Forensics", "Computer Vision", "Python"],
     image: imgTraceFinder,
     featured: true
+    github: "https://github.com/AI-TraceFinder/Bhagyashree_Mohalkar_TraceFinder---Forensic-Scanner-Identification",
   },
   {
     id: 2,
     title: "Hridayam",
     subtitle: "AI-powered Heart Disease Detection",
-    description:
-      "An advanced medical AI system that predicts heart disease risk using machine learning algorithms. Features a user-friendly interface for instant analysis and health insights.",
+    description: "A Heart Disease Detection System leveraging machine learning models to predict cardiovascular risk from 13 patient health parameters. Trained on 1,000+ medical records and integrated into a Flask web application, providing instant risk analysis and aiding early healthcare decision-making.",
     tags: ["Machine Learning", "Python", "Healthcare AI", "Streamlit"],
     image: imgHeart,
     featured: true,
@@ -36,7 +36,7 @@ const projects = [
     title: "Nexus.AI",
     subtitle: "Next-Gen Artificial Intelligence",
     description:
-      "A comprehensive AI platform designed to bridge the gap between complex neural networks and practical applications. Focuses on scalability and real-time processing.",
+      "A Hybrid NLP chatbot that combines regex-based intent handling with SpaCy word embeddings and cosine similarity for semantic question matching. Trained on 3,500+ labeled conversations, achieving 85.71% accuracy and a macro F1-score of 67.59%.",
     tags: ["Artificial Intelligence", "Neural Networks", "Deep Learning", "Python"],
     image: imgNexus,
     featured: true,
@@ -44,14 +44,14 @@ const projects = [
   },
   {
     id: 4,
-    title: "Mental Fitness Tracker",
-    subtitle: "using Machine Learning",
+    title: "SuperMarket Transaction Analysis",
+    subtitle: "using Association Rule Mining",
     description:
-      "Analyzes global mental health data to predict fitness trends. Uses Linear Regression and Random Forest models to provide actionable insights for mental well-being.",
-    tags: ["Machine Learning", "Data Analytics", "Random Forest", "Pandas"],
+      "Developed a Flask-based Market Basket Analysis system using Apriori and FP-Growth algorithms to identify frequent itemsets and product associations from supermarket transaction data. Generated recommendations using Support, Confidence, and Lift metrics, and visualized purchasing patterns through an interactive dashboard.",
+    tags: ["FP-Growth", "Apriori", "Association Rule Mining", "Chart.js"],
     image: imgMental,
     featured: true,
-    github: "https://github.com/BhagyashreeMohalkar/Mental_Fitness_Tracker-",
+    github: "https://github.com/BhagyashreeMohalkar/Super-Market-Transaction-Analysis",
   },
   {
     id: 5,
