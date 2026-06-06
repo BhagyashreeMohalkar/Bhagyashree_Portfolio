@@ -3,7 +3,21 @@ import { Briefcase } from "lucide-react";
 
 const experiences = [
   {
-    id: 0,
+  id: 0,
+  title: "Research Intern",
+  company: "Bhabha Atomic Research Centre, Mumbai (Onsite) · Internship",
+  period: "April 2026 – Present",
+  description: [
+    "Developing a scalable authentication and login system using Python and FastAPI for research-oriented applications.",
+    "Working on backend architecture, API integration, and secure user management to support scalable project development.",
+    "Exploring applications of Machine Learning and Deep Reinforcement Learning for Robotic Applications"
+  ],
+  tech: [
+    "Python", "FastAPI", "Machine Learning", "Deep Reinforcement Learning"
+  ]
+  },
+  {
+    id: 1,
     title: "Artificial Intelligence Intern",
     company: "Infosys Springboard · Internship",
     period: "Nov 2025 – Jan 2026",
@@ -15,7 +29,7 @@ const experiences = [
     tech: ["Artificial Intelligence", "Machine Learning", "Remote Internship"]
   },
   {
-    id: 1,
+    id: 2,
     title: "President — Student Alumni Relations Cell (SARC)",
     company: "Sanjivani College of Engineering",
     period: "Aug 2025 – Present",
@@ -27,7 +41,7 @@ const experiences = [
     tech: ["Leadership", "Communication", "Event Management"]
   },
   {
-    id: 2,
+    id: 3,
     title: "Training & Placement Student Coordinator",
     company: "Central Training & Placement Cell, Sanjivani College of Engineering",
     period: "Aug 2024 – Present",
@@ -39,7 +53,7 @@ const experiences = [
     tech: ["Coordination", "Industry Networking", "Event Planning"]
   },
   {
-    id: 3,
+    id: 4,
     title: "Tata Group Virtual Intern",
     company: "Tata Group (Forage)",
     period: "2024",
@@ -51,7 +65,7 @@ const experiences = [
     tech: ["Professional Skills", "Problem Solving", "Corporate Readiness"]
   },
   {
-    id: 4,
+    id: 5,
     title: "Deloitte Virtual Intern",
     company: "Deloitte (Forage)",
     period: "2024",
@@ -63,7 +77,7 @@ const experiences = [
     tech: ["Analytical Thinking", "Documentation", "Corporate Skills"]
   },
   {
-    id: 5,
+    id: 6,
     title: "Executive Member — Team Charlie (Space & Robotics Club)",
     company: "Sanjivani College of Engineering",
     period: "Sep 2023 – Dec 2024",
