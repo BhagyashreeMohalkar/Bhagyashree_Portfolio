@@ -232,7 +232,7 @@ export default function Hero() {
             transformStyle: "preserve-3d",
           }}
         >
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-2 flex flex-col items-center">
+          <h1 className="text-5xl md:text-7xl lg:text-7xl font-bold tracking-tight mb-2 flex flex-col items-center">
             {/* Animated Gradient Text */}
             <motion.span
               animate={{
