@@ -9,6 +9,7 @@ import imgSupermarket from "@assets/images/supermarket_transaction_analysis.png"
 import imgCancer from "@assets/images/cancer_detection_medical_imaging.png";
 import imgShoes from "@assets/images/smart_iot_navigation_shoes.png";
 import imgTraceFinder from "@assets/images/tracefinder_forensic_scanner.png";
+import imgBloodConnect from "@assets/images/blood_connect_pro.png";
 
 const projects = [
    {
