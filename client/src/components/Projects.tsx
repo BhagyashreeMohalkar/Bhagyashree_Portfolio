@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 // Import images
 import imgHeart from "@assets/images/ai_heart_disease_detection_interface.png";
 import imgNexus from "@assets/images/nexus_ai_network_concept.png";
-import imgMental from "@assets/images/mental_health_analytics_dashboard.png";
+import imgSupermarket from "@assets/images/supermarket_transaction_analysis.png";
 import imgCancer from "@assets/images/cancer_detection_medical_imaging.png";
 import imgShoes from "@assets/images/smart_iot_navigation_shoes.png";
 import imgTraceFinder from "@assets/images/tracefinder_forensic_scanner.png";
@@ -49,7 +49,7 @@ const projects = [
     description:
       "Developed a Flask-based Market Basket Analysis system using Apriori and FP-Growth algorithms to identify frequent itemsets and product associations from supermarket transaction data. Generated recommendations using Support, Confidence, and Lift metrics, and visualized purchasing patterns through an interactive dashboard.",
     tags: ["FP-Growth", "Apriori", "Association Rule Mining", "Chart.js"],
-    image: imgMental,
+    image: imgSupermarket,
     featured: true,
     github: "https://github.com/BhagyashreeMohalkar/Super-Market-Transaction-Analysis",
   },
@@ -64,17 +64,16 @@ const projects = [
     featured: false,
     github: "https://github.com/BhagyashreeMohalkar/Cancerous-Tissue-Detection-with-Logistic-Regression",
   },
-  {
+ {
     id: 6,
-    title: "Smart Navigation Shoes",
-    subtitle: "IoT Wearable Tech",
-    description:
-      "Innovative footwear embedded with sensors and IoT connectivity to provide haptic navigation feedback, designed to assist visually impaired users.",
-    tags: ["IoT", "Arduino", "Sensors", "Wearable Tech"],
-    image: imgShoes,
+    title: "BloodLink",
+    subtitle: "Emergency Donor Finder Website",
+    description: "Developed a blood donation management platform that connects donors, hospitals, and blood banks. Features donor registration, blood availability tracking, emergency donor matching, and real-time request management to facilitate faster access to blood during emergencies.",
+    tags: ["Healthcare", "Web Development", "Database", "Emergency Response", "PHP", "MySQL"],
+    image: imgBloodConnect,
     featured: false,
-    github: "https://github.com/BhagyashreeMohalkar/Smart-Navigation-Shoes",
-  },
+    github: "https://github.com/BhagyashreeMohalkar/blood-connect-pro",
+},
 ];
 
 export default function Projects() {
