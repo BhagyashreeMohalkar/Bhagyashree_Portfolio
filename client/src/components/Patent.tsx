@@ -71,7 +71,7 @@ export default function Patent() {
                   </h3>
                   <div className="flex items-center gap-2 text-purple-300">
                     <FileText className="w-4 h-4" />
-                    <span className="text-sm font-medium">December 2024</span>
+                    <span className="text-sm font-medium">No. 433263-001 | December 2024</span>
                   </div>
                 </div>
               </div>
