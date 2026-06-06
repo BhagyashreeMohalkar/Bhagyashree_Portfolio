@@ -245,7 +245,7 @@ export default function Hero() {
               }}
               className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 bg-[length:200%_auto] pb-2 text-center"
             >
-              AI/ML Developer
+              Aspiring Data Scientist
             </motion.span>
 
             <div className="flex flex-wrap justify-center gap-x-4">
@@ -261,7 +261,7 @@ export default function Hero() {
                 }}
                 className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 bg-[length:200%_auto] pb-2"
               >
-              Tech Explorer
+              ML Engineer
               </motion.span>
             </div>
           </h1>
