@@ -46,7 +46,7 @@ export default function Certifications() {
       link: "https://drive.google.com/file/d/1-6nkqmeawCzgFnYJ6a9xgKOKa-_1PfcO/view?usp=sharing",
       icon: "logo",
       logoUrl: talentbattleLogo,
-      accentColor: "from-cyan-500 via-blue-400 to-yellow-500"
+      accentColor: "from-cyan-500 via-yellow-400 to-cyan-500"
     }
   ];
 
