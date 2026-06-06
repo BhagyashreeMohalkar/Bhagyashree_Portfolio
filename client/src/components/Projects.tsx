@@ -18,7 +18,7 @@ const projects = [
     description: "An AI-driven forensic scanner identification system that analyzes scanner-specific digital fingerprints to determine the source of scanned documents. Achieved 94.64% accuracy and a weighted F1-score of 0.948 on a dataset of 4,500+ scanned images across 7 scanner classes, enabling reliable document origin verification and supporting digital forensic investigations.",
     tags: ["AI", "Forensics", "Computer Vision", "Python"],
     image: imgTraceFinder,
-    featured: true
+    featured: true,
     github: "https://github.com/AI-TraceFinder/Bhagyashree_Mohalkar_TraceFinder---Forensic-Scanner-Identification",
   },
   {
