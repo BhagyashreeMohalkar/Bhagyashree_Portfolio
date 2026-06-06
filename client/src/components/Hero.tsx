@@ -244,7 +244,7 @@ export default function Hero() {
               }}
               className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 bg-[length:200%_auto] pb-2 text-center"
             >
-              AI/ML Enthusiast
+              Bhagyashree Mohalkar
             </motion.span>
           </h1>
         </motion.div>
