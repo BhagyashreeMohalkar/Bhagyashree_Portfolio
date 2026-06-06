@@ -9,6 +9,16 @@ export default function Certifications() {
   const certifications = [
     {
       id: 1,
+      title: "Data Science Methods & Algorithms (2026)",
+      issuer: "Udemy",
+      date: "2026",
+      link: "https://drive.google.com/file/d/1P4RxxiilbJrWgWNtnE9THp9S5msUmUmc/view?usp=sharing",
+      icon: "logo",
+      logoUrl: googleLogo,
+      accentColor: "from-blue-500 via-blue-400 to-cyan-400"
+    },
+    {
+      id: 2,
       title: "Cloud Engineer Certificate",
       issuer: "Google Cloud",
       date: "2025",
@@ -16,16 +26,6 @@ export default function Certifications() {
       icon: "logo",
       logoUrl: googleLogo,
       accentColor: "from-blue-500 via-blue-400 to-cyan-400"
-    },
-    {
-      id: 2,
-      title: "Introduction to Data Science",
-      issuer: "Cisco Networking Academy",
-      date: "2025",
-      link: "https://drive.google.com/file/d/104jNpy3Zxtc9xkdHfW6HZn9uA45gPPEu/view?usp=sharing",
-      icon: "logo",
-      logoUrl: ciscoLogo,
-      accentColor: "from-purple-500 via-purple-400 to-pink-400"
     },
     {
       id: 3,
