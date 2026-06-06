@@ -16,7 +16,7 @@ export default function Certifications() {
       link: "https://drive.google.com/file/d/1P4RxxiilbJrWgWNtnE9THp9S5msUmUmc/view?usp=sharing",
       icon: "logo",
       logoUrl: udemyLogo,
-      accentColor: "from-pink-500 via-pink-400 to-yellow-400"
+      accentColor: "from-pink-500 via-pink-400 to-pink-400"
     },
     {
       id: 2,
@@ -46,7 +46,7 @@ export default function Certifications() {
       link: "https://drive.google.com/file/d/1-6nkqmeawCzgFnYJ6a9xgKOKa-_1PfcO/view?usp=sharing",
       icon: "logo",
       logoUrl: talentbattleLogo,
-      accentColor: "from-cyan-500 via-blue-400 to-indigo-500"
+      accentColor: "from-cyan-500 via-blue-400 to-purpule-500"
     }
   ];
 
