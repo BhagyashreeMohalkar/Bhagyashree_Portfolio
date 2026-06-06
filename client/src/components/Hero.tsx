@@ -255,7 +255,7 @@ export default function Hero() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="max-w-2xl text-lg md:text-xl leading-relaxed font-semibold text-center relative"
+          className="max-w-3xl text-xl md:text-2xl lg:text-3xl leading-relaxed font-semibold text-center relative"
           style={{
             transformStyle: "preserve-3d",
           }}
