@@ -319,7 +319,7 @@ export default function Hero() {
             whileHover={{ y: -5 }}
             onClick={() =>
               window.open(
-                "https://drive.google.com/uc?export=download&id=1natTmSV7BQY2Jl6qI1qoPZU12qWuh89g",
+                "https://drive.google.com/file/d/1xhqXScIzp6gSjTO4_wOrjGlcvjg3SZUq/view?usp=sharing",
                 "_blank",
                 "noopener,noreferrer"
               )
