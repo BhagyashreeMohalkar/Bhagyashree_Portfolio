@@ -244,25 +244,8 @@ export default function Hero() {
               }}
               className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 bg-[length:200%_auto] pb-2 text-center"
             >
-              AI/ML Developer
+              AI/ML Enthusiast
             </motion.span>
-
-            <div className="flex flex-wrap justify-center gap-x-4">
-              <span className="text-white">&</span>
-              <motion.span
-                animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-                className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 bg-[length:200%_auto] pb-2"
-              >
-              Tech Explorer
-              </motion.span>
-            </div>
           </h1>
         </motion.div>
 
