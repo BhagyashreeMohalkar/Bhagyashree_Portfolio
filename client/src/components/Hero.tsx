@@ -35,8 +35,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden pt-20"
-      style={{ perspective: "1000px" }}
+      className="min-h-[100svh] flex flex-col justify-center items-center relative overflow-hidden pt-24 md:pt-20 px-4"
     >
       {/* Animated Waves Background - Futuristic */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -126,7 +125,7 @@ export default function Hero() {
 
       {/* TOP-LEFT: Name with 3D Effect */}
       <motion.div
-        className="absolute top-6 left-6 z-50"
+        className="hidden md:block absolute top-6 left-6 z-50"
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.1 }}
@@ -166,7 +165,7 @@ export default function Hero() {
           ease: "easeInOut",
         }}
         // responsive size: use vw but cap with max-w
-        className="absolute top-20 left-20 w-[40vw] max-w-[384px] h-[40vw] max-h-[384px] bg-primary/30 rounded-full blur-[96px] pointer-events-none"
+        className="absolute top-20 left-20 w-[25vw] md:w-[40vw] max-w-[384px] h-[25vw] md:h-[40vw] max-h-[384px] bg-primary/30 rounded-full blur-[96px] pointer-events-none"
       />
       <motion.div
         animate={{
@@ -181,7 +180,7 @@ export default function Hero() {
           ease: "easeInOut",
           delay: 1,
         }}
-        className="absolute bottom-20 right-20 w-[40vw] max-w-[384px] h-[40vw] max-h-[384px] bg-secondary/30 rounded-full blur-[96px] pointer-events-none"
+        className="absolute bottom-20 right-20 w-[25vw] md:w-[40vw] max-w-[384px] h-[25vw] md:h-[40vw] max-h-[384px] bg-secondary/30 rounded-full blur-[96px] pointer-events-none"
       />
 
       <motion.div
@@ -198,14 +197,14 @@ export default function Hero() {
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] max-w-[500px] h-[60vw] max-h-[500px] bg-purple-900/20 rounded-full blur-[80px] pointer-events-none"
       />
 
-      <div className="container mx-auto px-4 z-10 flex flex-col items-center text-center gap-8">
+      <div className="container mx-auto px-4 sm:px-6 z-10 flex flex-col items-center text-center gap-6 md:gap-8">
         {/* Center badge with 3D hover effect */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
           whileHover={{ scale: 1.1, rotateZ: 5 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm cursor-default"
+          className="inline-flex items-center gap-2 px-3 md:px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm cursor-default max-w-[90vw]"
           style={{
             transformStyle: "preserve-3d",
           }}
@@ -232,7 +231,7 @@ export default function Hero() {
             transformStyle: "preserve-3d",
           }}
         >
-          <h1 className="text-5xl md:text-7xl lg:text-7xl font-bold tracking-tight mb-2 flex flex-col items-center">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-2 flex flex-col items-center">
             {/* Animated Gradient Text */}
             <motion.span
               animate={{
@@ -245,58 +244,71 @@ export default function Hero() {
               }}
               className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 bg-[length:200%_auto] pb-2 text-center"
             >
-              AI/ML Enthusiast
+              AI/ML Developer
             </motion.span>
+
+            <div className="flex flex-wrap justify-center gap-x-4">
+              <span className="text-white">&</span>
+              <motion.span
+                animate={{
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 bg-[length:200%_auto] pb-2"
+              >
+              Tech Explorer
+              </motion.span>
+            </div>
           </h1>
         </motion.div>
 
         {/* Quote with depth */}
-         <motion.div
-  initial={{ y: 20, opacity: 0 }}
-  animate={{ y: 0, opacity: 1 }}
-  transition={{ delay: 0.4 }}
-  className="max-w-none text-xl md:text-2xl lg:text-3xl text-center relative"
-  style={{
-    transformStyle: "preserve-3d",
-  }}
-  whileHover={{ scale: 1.05 }}
->
-  <span
-    className="
-      whitespace-nowrap
-      bg-clip-text text-transparent
-      bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500
-      drop-shadow-[0_0_12px_rgba(200,100,255,0.28)]
-      italic font-bold
-    "
-  >
-    "Somewhere, something incredible is waiting to be known"
-  </span>
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.4 }}
+          className="max-w-2xl text-lg md:text-xl leading-relaxed font-semibold text-center relative"
+          style={{
+            transformStyle: "preserve-3d",
+          }}
+          whileHover={{ scale: 1.05 }}
+        >
+          <span
+            className="bg-clip-text text-transparent
+               bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500
+               drop-shadow-[0_0_12px_rgba(200,100,255,0.28)]
+               italic font-bold"
+          >
+            "Somewhere, something incredible is waiting to be known"
+          </span>
 
-  <span className="not-italic text-primary block mt-3 text-lg md:text-xl">
-    — Carl Sagan
-  </span>
+          <span className="not-italic text-primary block mt-2">— Carl Sagan</span>
 
-  <motion.div
-    className="mx-auto mt-3 w-40 h-1 rounded-full
-      bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500
-      shadow-[0_0_18px_rgba(200,100,255,0.45)]"
-    animate={{ scaleX: [1, 1.2, 1] }}
-    transition={{ duration: 3, repeat: Infinity }}
-  />
-</motion.div>
+          {/* Gradient glow underline */}
+          <motion.div
+            className="mx-auto mt-3 w-40 h-1 rounded-full
+                  bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500
+                  shadow-[0_0_18px_rgba(200,100,255,0.45)]"
+            animate={{ scaleX: [1, 1.2, 1] }}
+            transition={{ duration: 3, repeat: Infinity }}
+          />
+        </motion.div>
 
         {/* CTA Buttons with 3D lift */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="flex flex-col sm:flex-row gap-4 mt-4"
+          className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-6 w-full sm:w-auto"
         >
           <motion.button
             whileHover={{ y: -5 }}
             onClick={scrollToProjects}
-            className="btn-primary h-14 text-lg flex items-center justify-center gap-2"
+            className="btn-primary h-12 md:h-14 text-base md:text-lg flex items-center justify-center gap-2 w-full sm:w-auto"
             data-testid="button-explore-projects"
           >
             🚀 Explore My Universe
@@ -306,12 +318,12 @@ export default function Hero() {
             whileHover={{ y: -5 }}
             onClick={() =>
               window.open(
-                "https://drive.google.com/uc?export=download&id=1xhqXScIzp6gSjTO4_wOrjGlcvjg3SZUq",
+                "https://drive.google.com/uc?export=download&id=1natTmSV7BQY2Jl6qI1qoPZU12qWuh89g",
                 "_blank",
                 "noopener,noreferrer"
               )
             }
-            className="btn-secondary h-14 text-lg flex items-center justify-center gap-2"
+            className="btn-secondary h-12 md:h-14 text-base md:text-lg flex items-center justify-center gap-2 w-full sm:w-auto"
             data-testid="button-download-cv"
           >
             <FileText className="h-5 w-5" />
@@ -324,7 +336,7 @@ export default function Hero() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.6 }}
-          className="flex gap-6 mt-12 text-gray-400"
+          className="flex gap-5 md:gap-6 mt-8 md:mt-12 text-gray-400"
         >
           <motion.a
             href="https://github.com/BhagyashreeMohalkar"
@@ -365,7 +377,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-xs text-gray-500 flex flex-col items-center gap-2"
+        className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 text-xs text-gray-500 flex-col items-center gap-2"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
