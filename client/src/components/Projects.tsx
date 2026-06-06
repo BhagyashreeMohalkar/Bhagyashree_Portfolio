@@ -75,18 +75,6 @@ const projects = [
     featured: false,
     github: "https://github.com/BhagyashreeMohalkar/Smart-Navigation-Shoes",
   },
-  {
-    id: 7,
-    title: "Smart Irrigation System",
-    subtitle: "Soil Moisture Sensing",
-    description:
-      "Automated agricultural solution that monitors soil moisture levels in real-time and optimizes water usage through intelligent irrigation control.",
-    tags: ["IoT", "Automation", "Smart Agriculture", "C++"],
-    image: imgIrrigation,
-    featured: false,
-    github:
-      "https://github.com/BhagyashreeMohalkar/-Smart-Water-Irrigation-and-Soil-Moisture-Sensing-System",
-  },
 ];
 
 export default function Projects() {
