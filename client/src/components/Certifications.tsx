@@ -4,6 +4,7 @@ import googleLogo from "@assets/images/google.png";
 import ciscoLogo from "@assets/images/cisco.png";
 import nptelLogo from "@assets/images/nptel.png";
 import talentbattleLogo from "@assets/images/talentbattle.png";
+import udemyLogo from "@assets/images/UdemyLogo.webp";
 
 export default function Certifications() {
   const certifications = [
@@ -14,7 +15,7 @@ export default function Certifications() {
       date: "2026",
       link: "https://drive.google.com/file/d/1P4RxxiilbJrWgWNtnE9THp9S5msUmUmc/view?usp=sharing",
       icon: "logo",
-      logoUrl: googleLogo,
+      logoUrl: udemyLogo,
       accentColor: "from-blue-500 via-blue-400 to-cyan-400"
     },
     {
