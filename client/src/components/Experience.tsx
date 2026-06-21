@@ -13,7 +13,7 @@ const experiences = [
     "Applying Graph Neural Networks (GNNs) and E3NNs for partial atomic charge prediction on the LnQM dataset."
   ],
   tech: [
-    "Python", "FastAPI", "Graph Neural Metworks", "Equivariant Neural Networks(E3NNs)"
+    "Python", "FastAPI", "Graph Neural Metworks", "Equivariant Neural Networks (E3NNs)"
   ]
   },
   {
