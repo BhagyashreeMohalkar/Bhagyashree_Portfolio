@@ -10,10 +10,10 @@ const experiences = [
   description: [
     "Developing a scalable authentication and login system using Python and FastAPI for research-oriented applications.",
     "Working on backend architecture, API integration, and secure user management to support scalable project development.",
-    "Exploring applications of Machine Learning and Deep Reinforcement Learning for Robotic Applications"
+    "Appling Graph Neural Networks (GNNs) and E3NNs for partial atomic charge prediction on the LnQM dataset."
   ],
   tech: [
-    "Python", "FastAPI", "Machine Learning", "Deep Reinforcement Learning"
+    "Python", "FastAPI", "Graph Neural Metworks", "Equivariant Neural Networks(E3NNs)"
   ]
   },
   {
