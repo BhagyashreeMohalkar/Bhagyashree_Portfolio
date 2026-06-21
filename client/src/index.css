@@ -268,24 +268,13 @@
   animation: gradientMove 6s ease infinite;
 }
 
-/* Rotating gradient animation for borders */
-@keyframes gradientRotate {
+@keyframes gradientMove {
   0% { background-position: 0% 50%; }
-  25% { background-position: 50% 100%; }
   50% { background-position: 100% 50%; }
-  75% { background-position: 50% 0%; }
   100% { background-position: 0% 50%; }
 }
 
-.animate-gradient-rotate {
-  background-size: 300% 300%;
-  animation: gradientRotate 4s ease infinite;
-}
-
-/* Reduce motion preference */
-@media (prefers-reduced-motion: reduce) {
-  .animate-gradient,
-  .animate-gradient-rotate {
-    animation: none;
-  }
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientMove 6s ease infinite;
 }
